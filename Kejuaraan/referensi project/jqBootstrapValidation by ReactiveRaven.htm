@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>jqBootstrapValidation by ReactiveRaven</title>
+
+        <link rel="stylesheet" href="jqBootstrapValidation%20by%20ReactiveRaven_files/prettify_bootstrap.css">
+        <link rel="stylesheet" href="jqBootstrapValidation%20by%20ReactiveRaven_files/bootstrap.css">
+        <script type="text/javascript" async="" src="jqBootstrapValidation%20by%20ReactiveRaven_files/ga.js"></script><script src="jqBootstrapValidation%20by%20ReactiveRaven_files/jQuery-1.js"></script>
+        <script src="jqBootstrapValidation%20by%20ReactiveRaven_files/bootstrap.js"></script>
+        <script src="jqBootstrapValidation%20by%20ReactiveRaven_files/prettify.js"></script>
+        <script src="jqBootstrapValidation%20by%20ReactiveRaven_files/jqBootstrapValidation.js"></script>
+        <style>
+            h2
+            {
+                margin-top: 1em;
+            }
+        </style>
+
+        <script>
+            $(function() {
+
+                prettyPrint();
+
+                $("input,textarea,select").jqBootstrapValidation(
+                    {
+                        preventSubmit: true,
+                        submitError: function($form, event, errors) {
+                            // Here I do nothing, but you could do something like display 
+                            // the error messages to the user, log, etc.
+                        },
+                        submitSuccess: function($form, event) {
+                            alert("OK");
+                            event.preventDefault();
+                        },
+                        filter: function() {
+                            return $(this).is(":visible");
+                        }
+                    }
+                );
+
+                $("a[data-toggle=\"tab\"]").click(function(e) {
+                    e.preventDefault();
+                    $(this).tab("show");
+                });
+
+            });
+        </script>
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-32402515-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="span6">
+                    <h1>jq<span></span>Bootstrap<span></span>Validation</h1>
+                    <p>A JQuery validation plugin for bootstrap forms.</p>
+                </div>
+                <div class="span6" style="text-align: right;">
+                    <a class="btn btn-large btn-inverse" href="https://github.com/ReactiveRaven/jqBootstrapValidation">View on GitHub</a>
+                    <a class="btn btn-large btn-inverse" href="https://github.com/ReactiveRaven/jqBootstrapValidation/zipball/1.3.6">Download v1.3.6</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span6">
+                    <h2 id="itturnsthis">It turns this</h2>
+                    <pre class="prettyprint linenums lang-html pre-scrollable"><ol class="linenums"><li class="L0"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">required</span><span class="tag">&gt;</span></li><li class="L1"><span class="tag">&lt;input</span><span class="pln"> </span></li><li class="L2"><span class="pln">  </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"emailAgain"</span></li><li class="L3"><span class="pln">  </span><span class="atn">data-validation-matches-match</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span></li><li class="L4"><span class="pln">  </span><span class="atn">data-validation-matches-message</span><span class="pun">=</span></li><li class="L5"><span class="pln">    </span><span class="atv">"Must match email address entered above"</span><span class="pln"> </span></li><li class="L6"><span class="tag">&gt;</span></li><li class="L7"><span class="tag">&lt;input</span><span class="pln"> </span></li><li class="L8"><span class="pln">  </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span></li><li class="L9"><span class="pln">  </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"terms-and-conditions"</span><span class="pln"> </span></li><li class="L0"><span class="pln">  </span><span class="atn">required</span><span class="pln"> </span></li><li class="L1"><span class="pln">  </span><span class="atn">data-validation-required-message</span><span class="pun">=</span></li><li class="L2"><span class="pln">    </span><span class="atv">"You must agree to the terms and conditions"</span></li><li class="L3"><span class="tag">&gt;</span></li><li class="L4"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span></li><li class="L5"><span class="pln">  </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"qualityControl[]"</span></li><li class="L6"><span class="pln">  </span><span class="atn">value</span><span class="pun">=</span><span class="atv">"fast"</span></li><li class="L7"><span class="pln">  </span><span class="atn">minchecked</span><span class="pun">=</span><span class="atv">"2"</span></li><li class="L8"><span class="pln">  </span><span class="atn">data-validation-minchecked-message</span><span class="pun">=</span><span class="atv">"Choose two"</span></li><li class="L9"><span class="pln">  </span><span class="atn">maxchecked</span><span class="pun">=</span><span class="atv">"2"</span></li><li class="L0"><span class="pln">  </span><span class="atn">data-validation-maxchecked-message</span><span class="pun">=</span></li><li class="L1"><span class="pln">    </span><span class="atv">"You can't have it all ways"</span></li><li class="L2"><span class="tag">&gt;</span></li><li class="L3"><span class="pln">                    </span></li></ol></pre>
+                </div>
+                <div class="span6">
+                    <h2 id="intothis">Into this</h2>
+                    <form class="form-horizontal" novalidate="">
+                        <div class="control-group">
+                            <label class="control-label" for="email">Email address</label>
+                            <div class="controls">
+                                <input name="email" id="email" required="" type="email">
+                                <p class="help-block">Email address we can contact you on</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="emailAgain">Email again</label>
+                            <div class="controls">
+                                <input data-validation-matches-match="email" data-validation-matches-message="Must match email address entered above" id="emailAgain" name="emailAgain" type="email">
+                                <p class="help-block">And again, to check for speeling miskates</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="terms-and-conditions">Legal</label>
+                            <div class="controls">
+                                <label class="checkbox">
+                                    <input id="terms-and-conditions" name="terms-and-conditions" required="" data-validation-required-message="You must agree to the terms and conditions" type="checkbox">
+                                    I agree to the <a href="#">terms and conditions</a>
+                                </label>
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Quality Control</label>
+                            <div class="controls">
+                                <label class="checkbox">
+                                    <input name="qualityControl[]" value="fast" data-validation-minchecked-minchecked="2" data-validation-minchecked-message="Choose two" data-validation-maxchecked-maxchecked="2" data-validation-maxchecked-message="You can't have it all ways" type="checkbox">
+                                    Fast
+                                </label>
+                                <label class="checkbox">
+                                    <input name="qualityControl[]" value="cheap" type="checkbox">
+                                    Cheap
+                                </label>
+                                <label class="checkbox">
+                                    <input name="qualityControl[]" value="good" type="checkbox">
+                                    Good
+                                </label>
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Test Validation <i class="icon-ok icon-white"></i></button><br>
+                            (go ahead, nothing is sent anywhere)
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <h2 id="installation">Installation</h2>
+            <div class="row">
+                <div class="span12">
+                    <ol>
+                        <li>
+                            Download <a href="https://raw.github.com/ReactiveRaven/jqBootstrapValidation/1.3.6/jqBootstrapValidation.js">jqBootstrapValidation</a> and include the script tags on your page:
+                            <pre class="prettyprint lang-html"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln"> </span><span class="com">&lt;!-- or use local jquery --&gt;</span><span class="pln">
+</span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"/js/jqBootstrapValidation.js"</span><span class="tag">&gt;&lt;/script&gt;</span></pre>
+                        </li>
+                        <li>
+                            Apply the jqBootstrapValidation plugin to the elements you want validation applied to
+                            <pre class="prettyprint lang-html"><span class="tag">&lt;script&gt;</span><span class="pln">
+  $</span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> $</span><span class="pun">(</span><span class="str">"input,select,textarea"</span><span class="pun">).</span><span class="pln">not</span><span class="pun">(</span><span class="str">"[type=submit]"</span><span class="pun">).</span><span class="pln">jqBootstrapValidation</span><span class="pun">();</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+</span><span class="tag">&lt;/script&gt;</span></pre>
+                        </li>
+                        <li>
+                            jqBootstrapValidation will scan for HTML5 
+validator attributes directly on the elements, plus any extra options 
+specified via data attributes.<br>
+                            See below.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- ################################################################# -->
+            <!--                                                        VALIDATORS -->
+            <!-- ################################################################# -->
+
+            <h2 id="validators">Validators</h2>
+            <div class="row">
+                <div class="tabbable">
+                    <div class="span4">
+                        <ul class="nav-list nav well well-small">
+                            <li class="nav-header">HTML5 based</li>
+                            <li class="active"><a href="#validators_email" data-toggle="tab">Email</a></li>
+                            <li><a href="#validators_number" data-toggle="tab">Number</a></li>
+                            <li><a href="#validators_required" data-toggle="tab">Required</a></li>
+                            <li><a href="#validators_max" data-toggle="tab">Max</a></li>
+                            <li><a href="#validators_min" data-toggle="tab">Min</a></li>
+                            <li><a href="#validators_maxlength" data-toggle="tab">Max length</a></li>
+                            <li><a href="#validators_minlength" data-toggle="tab">Min length</a></li>
+                            <li><a href="#validators_pattern" data-toggle="tab">Pattern</a></li>
+                            <li class="nav-header">Extras</li>
+                            <li><a href="#validators_match" data-toggle="tab">Match</a></li>
+                            <li><a href="#validators_maxchecked" data-toggle="tab">Max checked</a></li>
+                            <li><a href="#validators_minchecked" data-toggle="tab">Min checked</a></li>
+                            <li><a href="#validators_regex" data-toggle="tab">Regex</a></li>
+                            <li><a href="#validators_callback" data-toggle="tab">Callback</a></li>
+                            <li><a href="#validators_ajax" data-toggle="tab">AJAX</a></li>
+                            <li class="nav-header">Build your own</li>
+                            <li><a href="#validators_create_mix" data-toggle="tab">Mix and multiply</a></li>
+                        </ul>
+                    </div>
+                    <div class="span8 tab-content">
+                        <!-- ========================================== VALIDATORS_EMAIL -->
+                        <div class="tab-pane active" id="validators_email">
+                            <h3>Email address</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#validators_email_preview" data-toggle="tab">Example</a></li>
+                                    <li><a href="#validators_email_code" data-toggle="tab">Code</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="validators_email_preview">
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Email address</label>
+                                                <div class="controls">
+                                                    <input type="email">
+                                                    <p class="help-block"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions"><button type="submit" class="btn btn-primary">Test Validation <i class="icon-ok icon-white"></i></button></div></form>
+                                    </div>
+                                    <div class="tab-pane" id="validators_email_code">
+                                        <pre class="prettyprint lang-html linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Email address</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L5"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;&lt;/p&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L8"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Attribute</th>
+                                        <th>Value</th>
+                                        <th>Req?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>type</td>
+                                        <td>email</td>
+                                        <td><i class="icon-ok"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>data-validation-email-message</td>
+                                        <td>
+                                            (your failure message)
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ======================================= VALIDATORS_REQUIRED -->
+                        <div class="tab-pane" id="validators_required">
+                            <h3>Required</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#validators_required_preview" data-toggle="tab">Example</a></li>
+                                    <li><a href="#validators_required_code" data-toggle="tab">Code</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="validators_required_preview">
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Type something</label>
+                                                <div class="controls">
+                                                    <input name="some_field" required="" type="text">
+                                                    <p class="help-block"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions"><button type="submit" class="btn btn-primary">Test Validation <i class="icon-ok icon-white"></i></button></div></form>
+                                    </div>
+                                    <div class="tab-pane" id="validators_required_code">
+                                        <pre class="prettyprint lang-html linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Type something</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="atn">required</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L5"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;&lt;/p&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L8"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Attribute</th>
+                                        <th>Value</th>
+                                        <th>Req?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>required</td>
+                                        <td>(doesn't need a value)</td>
+                                        <td><i class="icon-ok"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>data-validation-required-message</td>
+                                        <td>
+                                            (your failure message)
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ============================================ VALIDATORS_MIN -->
+                        <div class="tab-pane" id="validators_min">
+                            <h3>Minimum</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#validators_min_preview" data-toggle="tab">Example</a></li>
+                                    <li><a href="#validators_min_code" data-toggle="tab">Code</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="validators_min_preview">
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Type a number</label>
+                                                <div class="controls">
+                                                    <input min="42" name="some_field" type="number">
+                                                    <p class="help-block">Must be higher than 41</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions"><button type="submit" class="btn btn-primary">Test Validation <i class="icon-ok icon-white"></i></button></div></form>
+                                    </div>
+                                    <div class="tab-pane" id="validators_min_code">
+                                        <pre class="prettyprint lang-html linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Type a number</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">min</span><span class="pun">=</span><span class="atv">"42"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L5"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;</span><span class="pln">Must be higher than 41</span><span class="tag">&lt;/p&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L8"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Attribute</th>
+                                        <th>Value</th>
+                                        <th>Req?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>min</td>
+                                        <td>(minimum number to accept)</td>
+                                        <td><i class="icon-ok"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>data-validation-min-message</td>
+                                        <td>
+                                            (your failure message)
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ============================================ VALIDATORS_MAX -->
+                        <div class="tab-pane" id="validators_max">
+                            <h3>Maximum</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#validators_max_preview" data-toggle="tab">Example</a></li>
+                                    <li><a href="#validators_max_code" data-toggle="tab">Code</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="validators_max_preview">
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Type a number</label>
+                                                <div class="controls">
+                                                    <input max="42" name="some_field" type="number">
+                                                    <p class="help-block">Must be lower than 43</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions"><button type="submit" class="btn btn-primary">Test Validation <i class="icon-ok icon-white"></i></button></div></form>
+                                    </div>
+                                    <div class="tab-pane" id="validators_max_code">
+                                        <pre class="prettyprint lang-html linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Type a number</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="atn">max</span><span class="pun">=</span><span class="atv">"42"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L5"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;</span><span class="pln">Must be lower than 43</span><span class="tag">&lt;/p&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L8"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Attribute</th>
+                                        <th>Value</th>
+                                        <th>Req?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>max</td>
+                                        <td>(maximum number to accept)</td>
+                                        <td><i class="icon-ok"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>data-validation-max-message</td>
+                                        <td>
+                                            (your failure message)
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ====================================== VALIDATORS_MAXLENGTH -->
+                        <div class="tab-pane" id="validators_maxlength">
+                            <h3>Maximum Length</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#validators_maxlength_preview" data-toggle="tab">Example</a></li>
+                                    <li><a href="#validators_maxlength_code" data-toggle="tab">Code</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="validators_maxlength_preview">
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Type something</label>
+                                                <div class="controls">
+                                                    <input maxlength="10" name="some_field" type="text">
+                                                    <p class="help-block"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions"><button type="submit" class="btn btn-primary">Test Validation <i class="icon-ok icon-white"></i></button></div></form>
+                                    </div>
+                                    <div class="tab-pane" id="validators_maxlength_code">
+                                        <pre class="prettyprint lang-html linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="pln"> </span><span class="atn">novalidate</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Type something</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">maxlength</span><span class="pun">=</span><span class="atv">"10"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L5"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;&lt;/p&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L8"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Attribute</th>
+                                        <th>Value</th>
+                                        <th>Req?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>maxlength</td>
+                                        <td>(maximum number of characters to accept)</td>
+                                        <td><i class="icon-ok"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>data-validation-maxlength-message</td>
+                                        <td>
+                                            (your failure message)
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ====================================== VALIDATORS_MINLENGTH -->
+                        <div class="tab-pane" id="validators_minlength">
+                            <h3>Minimum Length</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#validators_minlength_preview" data-toggle="tab">Example</a></li>
+                                    <li><a href="#validators_minlength_code" data-toggle="tab">Code</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="validators_minlength_preview">
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Type something</label>
+                                                <div class="controls">
+                                                    <input minlength="10" name="some_field" type="text">
+                                                    <p class="help-block"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions"><button type="submit" class="btn btn-primary">Test Validation <i class="icon-ok icon-white"></i></button></div></form>
+                                    </div>
+                                    <div class="tab-pane" id="validators_minlength_code">
+                                        <pre class="prettyprint lang-html linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="pln"> </span><span class="atn">novalidate</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Type something</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">minlength</span><span class="pun">=</span><span class="atv">"10"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L5"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;&lt;/p&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L8"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Attribute</th>
+                                        <th>Value</th>
+                                        <th>Req?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>minlength</td>
+                                        <td>(minimum number of characters to accept)</td>
+                                        <td><i class="icon-ok"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>data-validation-minlength-message</td>
+                                        <td>
+                                            (your failure message)
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ======================================== VALIDATORS_PATTERN -->
+                        <div class="tab-pane" id="validators_pattern">
+                            <h3>Pattern</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#validators_pattern_preview" data-toggle="tab">Example</a></li>
+                                    <li><a href="#validators_pattern_code" data-toggle="tab">Code</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="validators_pattern_preview">
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Type something</label>
+                                                <div class="controls">
+                                                    <input pattern="a.*z" data-validation-pattern-message="Must start with 'a' and end with 'z'" name="some_field" type="text">
+                                                    <p class="help-block">Must start with 'a' and end with 'z'</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions"><button type="submit" class="btn btn-primary">Test Validation <i class="icon-ok icon-white"></i></button></div></form>
+                                    </div>
+                                    <div class="tab-pane" id="validators_pattern_code">
+                                        <pre class="prettyprint lang-html linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Type something</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span></li><li class="L5"><span class="pln">        </span><span class="atn">pattern</span><span class="pun">=</span><span class="atv">"a.*z"</span><span class="pln"> </span></li><li class="L6"><span class="pln">        </span><span class="atn">data-validation-pattern-message</span><span class="pun">=</span><span class="atv">"Must start with 'a' and end with 'z'"</span><span class="pln"> </span></li><li class="L7"><span class="pln">        </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span></li><li class="L8"><span class="pln">      </span><span class="tag">/&gt;</span></li><li class="L9"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;</span><span class="pln">Must start with 'a' and end with 'z'</span><span class="tag">&lt;/p&gt;</span></li><li class="L0"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L2"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Attribute</th>
+                                        <th>Value</th>
+                                        <th>Req?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>pattern</td>
+                                        <td>
+                                            <a href="http://www.regular-expressions.info/javascript.html">Regex</a> to determine if the input is acceptable<br>
+                                            <span class="label label-info">Note</span> only expects <code>abc</code>, not <code>/^abc$/ig</code>
+                                        </td>
+                                        <td><i class="icon-ok"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>data-validation-pattern-message</td>
+                                        <td>
+                                            (your failure message)
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ========================================== VALIDATORS_MATCH -->
+                        <div class="tab-pane" id="validators_match">
+                            <h3>Confirm match</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#validators_match_preview" data-toggle="tab">Example</a></li>
+                                    <li><a href="#validators_match_code" data-toggle="tab">Code</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="validators_match_preview">
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Type something</label>
+                                                <div class="controls">
+                                                    <input name="some_field" type="text">
+                                                    <p class="help-block"></p>
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label">Type it again</label>
+                                                <div class="controls">
+                                                    <input data-validation-match-match="some_field" name="some_other_field" type="text">
+                                                    <p class="help-block"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions"><button type="submit" class="btn btn-primary">Test Validation <i class="icon-ok icon-white"></i></button></div></form>
+                                    </div>
+                                    <div class="tab-pane" id="validators_match_code">
+                                        <pre class="prettyprint lang-html linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Type something</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L5"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;&lt;/p&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L8"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Type it again</span><span class="tag">&lt;/label&gt;</span></li><li class="L0"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span></li><li class="L2"><span class="pln">        </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span></li><li class="L3"><span class="pln">        </span><span class="atn">data-validation-match-match</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span></li><li class="L4"><span class="pln">        </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_other_field"</span><span class="pln"> </span></li><li class="L5"><span class="pln">      </span><span class="tag">/&gt;</span></li><li class="L6"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;&lt;/p&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L8"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L9"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Attribute</th>
+                                        <th>Value</th>
+                                        <th>Req?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>data-validation-match-match</td>
+                                        <td>name of form field to match</td>
+                                        <td><i class="icon-ok"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>data-validation-match-message</td>
+                                        <td>
+                                            (your failure message)
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ===================================== VALIDATORS_MAXCHECKED -->
+                        <div class="tab-pane" id="validators_maxchecked">
+                            <h3>Max checked options</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#validators_maxchecked_preview" data-toggle="tab">Example</a></li>
+                                    <li><a href="#validators_maxchecked_code" data-toggle="tab">Code</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="validators_maxchecked_preview">
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Select your two favourite colours</label>
+                                                <div class="controls">
+                                                    <label class="checkbox"><input name="some_field" data-validation-maxchecked-maxchecked="2" data-validation-maxchecked-message="Don't be greedy!" type="checkbox"> Red</label>
+                                                    <label class="checkbox"><input name="some_field" type="checkbox"> Orange</label>
+                                                    <label class="checkbox"><input name="some_field" type="checkbox"> Yellow</label>
+                                                    <label class="checkbox"><input name="some_field" type="checkbox"> Green</label>
+                                                    <label class="checkbox"><input name="some_field" type="checkbox"> Blue</label>
+                                                    <label class="checkbox"><input name="some_field" type="checkbox"> Indigo</label>
+                                                    <label class="checkbox"><input name="some_field" type="checkbox"> Violet</label>
+                                                    <p class="help-block"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <button type="submit" class="btn btn-primary">
+                                                    Test Validation <i class="icon-ok icon-white"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="validators_maxchecked_code">
+                                        <span class="label label-info">Note:</span> you only need to apply this to one checkbox; the form is searched for matching names for the rest.
+                                        <pre class="prettyprint lang-html linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Select your two favourite colours</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L5"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span></li><li class="L6"><span class="pln">          </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span></li><li class="L7"><span class="pln">          </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span></li><li class="L8"><span class="pln">          </span><span class="atn">data-validation-maxchecked-maxchecked</span><span class="pun">=</span><span class="atv">"2"</span><span class="pln"> </span></li><li class="L9"><span class="pln">          </span><span class="atn">data-validation-maxchecked-message</span><span class="pun">=</span><span class="atv">"Don't be greedy!"</span><span class="pln"> </span></li><li class="L0"><span class="pln">        </span><span class="tag">/&gt;</span><span class="pln"> Red</span></li><li class="L1"><span class="pln">      </span><span class="tag">&lt;/label&gt;</span></li><li class="L2"><span class="pln">      </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln"> Orange</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;/label&gt;</span></li><li class="L5"><span class="pln">      </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L6"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln"> Yellow</span></li><li class="L7"><span class="pln">      </span><span class="tag">&lt;/label&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L9"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln"> Green</span></li><li class="L0"><span class="pln">      </span><span class="tag">&lt;/label&gt;</span></li><li class="L1"><span class="pln">      </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln"> Blue</span></li><li class="L3"><span class="pln">      </span><span class="tag">&lt;/label&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L5"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln"> Indigo</span></li><li class="L6"><span class="pln">      </span><span class="tag">&lt;/label&gt;</span></li><li class="L7"><span class="pln">      </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln"> Violet</span></li><li class="L9"><span class="pln">      </span><span class="tag">&lt;/label&gt;</span></li><li class="L0"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;&lt;/p&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L3"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Attribute</th>
+                                        <th>Value</th>
+                                        <th>Req?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>data-validation-maxchecked-maxchecked</td>
+                                        <td>maximum number of options that may be checked</td>
+                                        <td><i class="icon-ok"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>data-validation-maxchecked-message</td>
+                                        <td>
+                                            your failure message
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ===================================== VALIDATORS_MINCHECKED -->
+                        <div class="tab-pane" id="validators_minchecked">
+                            <h3>Min checked options</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#validators_minchecked_preview" data-toggle="tab">Example</a></li>
+                                    <li><a href="#validators_minchecked_code" data-toggle="tab">Code</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="validators_minchecked_preview">
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Select your two favourite colours</label>
+                                                <div class="controls">
+                                                    <label class="checkbox"><input name="some_field" data-validation-minchecked-minchecked="2" data-validation-minchecked-message="Choose at least two" type="checkbox"> Red</label>
+                                                    <label class="checkbox"><input name="some_field" type="checkbox"> Orange</label>
+                                                    <label class="checkbox"><input name="some_field" type="checkbox"> Yellow</label>
+                                                    <label class="checkbox"><input name="some_field" type="checkbox"> Green</label>
+                                                    <label class="checkbox"><input name="some_field" type="checkbox"> Blue</label>
+                                                    <label class="checkbox"><input name="some_field" type="checkbox"> Indigo</label>
+                                                    <label class="checkbox"><input name="some_field" type="checkbox"> Violet</label>
+                                                    <p class="help-block"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <button type="submit" class="btn btn-primary">
+                                                    Test Validation <i class="icon-ok icon-white"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="validators_minchecked_code">
+                                        <span class="label label-info">Note:</span> you only need to apply this to one checkbox; the form is searched for matching names for the rest.
+                                        <pre class="prettyprint lang-html linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Select your two favourite colours</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L5"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span></li><li class="L6"><span class="pln">          </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span></li><li class="L7"><span class="pln">          </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span></li><li class="L8"><span class="pln">          </span><span class="atn">data-validation-minchecked-minchecked</span><span class="pun">=</span><span class="atv">"2"</span><span class="pln"> </span></li><li class="L9"><span class="pln">          </span><span class="atn">data-validation-minchecked-message</span><span class="pun">=</span><span class="atv">"Choose at least two"</span><span class="pln"> </span></li><li class="L0"><span class="pln">        </span><span class="tag">/&gt;</span><span class="pln"> Red</span></li><li class="L1"><span class="pln">      </span><span class="tag">&lt;/label&gt;</span></li><li class="L2"><span class="pln">      </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln"> Orange</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;/label&gt;</span></li><li class="L5"><span class="pln">      </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L6"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln"> Yellow</span></li><li class="L7"><span class="pln">      </span><span class="tag">&lt;/label&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L9"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln"> Green</span></li><li class="L0"><span class="pln">      </span><span class="tag">&lt;/label&gt;</span></li><li class="L1"><span class="pln">      </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln"> Blue</span></li><li class="L3"><span class="pln">      </span><span class="tag">&lt;/label&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L5"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln"> Indigo</span></li><li class="L6"><span class="pln">      </span><span class="tag">&lt;/label&gt;</span></li><li class="L7"><span class="pln">      </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"some_field"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln"> Violet</span></li><li class="L9"><span class="pln">      </span><span class="tag">&lt;/label&gt;</span></li><li class="L0"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;&lt;/p&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L3"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Attribute</th>
+                                        <th>Value</th>
+                                        <th>Req?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>data-validation-minchecked-minchecked</td>
+                                        <td>minimum number of options that may be checked</td>
+                                        <td><i class="icon-ok"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>data-validation-minchecked-message</td>
+                                        <td>
+                                            your failure message
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ========================================== VALIDATORS_REGEX -->
+                        <div class="tab-pane" id="validators_regex">
+                            <h3>Regex matching</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#validators_regex_preview" data-toggle="tab">Example</a></li>
+                                    <li><a href="#validators_regex_code" data-toggle="tab">Code</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="validators_regex_preview">
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Type something</label>
+                                                <div class="controls">
+                                                    <input data-validation-regex-regex="a.*z" data-validation-regex-message="Must start with 'a' and end with 'z'" type="text">
+                                                    <p class="help-block"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <button type="submit" class="btn btn-primary">
+                                                    Test Validation <i class="icon-ok icon-white"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="validators_regex_code">
+                                        <pre class="prettyprint lang-html linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Select your two favourite colours</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span></li><li class="L5"><span class="pln">        </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span></li><li class="L6"><span class="pln">        </span><span class="atn">data-validation-regex-regex</span><span class="pun">=</span><span class="atv">"a.*z"</span><span class="pln"> </span></li><li class="L7"><span class="pln">        </span><span class="atn">data-validation-regex-message</span><span class="pun">=</span><span class="atv">"Must start with 'a' and end with 'z'"</span><span class="pln"> </span></li><li class="L8"><span class="pln">      </span><span class="tag">/&gt;</span></li><li class="L9"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;&lt;/p&gt;</span></li><li class="L0"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L2"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Attribute</th>
+                                        <th>Value</th>
+                                        <th>Req?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>data-validation-regex-regex</td>
+                                        <td>pattern the input must match</td>
+                                        <td><i class="icon-ok"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>data-validation-regex-message</td>
+                                        <td>
+                                            your failure message (strongly recommended you make this descriptive)
+                                        </td>
+                                        <td><i class="icon-ok"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ========================================== VALIDATORS_CALLBACK -->
+                        <div class="tab-pane" id="validators_callback">
+                            <h3>Javascript Callback</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#validators_callback_preview" data-toggle="tab">Example</a></li>
+                                    <li><a href="#validators_callback_code" data-toggle="tab">Code</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="validators_callback_preview">
+                                        <script>
+                                            function demo_callback_function($el, value, callback) {
+                                                callback({
+                                                    value: value,
+                                                    valid: /a.*z/.test(value),
+                                                    message: "Must start with 'a' and end with 'z'"
+                                                });
+                                            }
+                                        </script>
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Type something</label>
+                                                <div class="controls">
+                                                    <input data-validation-callback-callback="demo_callback_function" type="text">
+                                                    <p class="help-block"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <button type="submit" class="btn btn-primary">
+                                                    Test Validation <i class="icon-ok icon-white"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="validators_callback_code">
+                                        <pre class="prettyprint lang-html linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;script&gt;</span></li><li class="L1"><span class="pln">  </span><span class="kwd">function</span><span class="pln"> demo_callback_function</span><span class="pun">(</span><span class="pln">$el</span><span class="pun">,</span><span class="pln"> value</span><span class="pun">,</span><span class="pln"> callback</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    callback</span><span class="pun">({</span></li><li class="L3"><span class="pln">      value</span><span class="pun">:</span><span class="pln"> value</span><span class="pun">,</span></li><li class="L4"><span class="pln">      valid</span><span class="pun">:</span><span class="pln"> </span><span class="str">/a.*z/</span><span class="pun">.</span><span class="pln">test</span><span class="pun">(</span><span class="pln">value</span><span class="pun">),</span></li><li class="L5"><span class="pln">      message</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Must start with 'a' and end with 'z'"</span></li><li class="L6"><span class="pln">    </span><span class="pun">});</span></li><li class="L7"><span class="pln">  </span><span class="pun">}</span></li><li class="L8"><span class="tag">&lt;/script&gt;</span></li><li class="L9"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="tag">&gt;</span></li><li class="L0"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Type something</span><span class="tag">&lt;/label&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L3"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span></li><li class="L4"><span class="pln">        </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span></li><li class="L5"><span class="pln">        </span><span class="atn">data-validation-callback-callback</span><span class="pun">=</span><span class="atv">"demo_callback_function"</span><span class="pln"> </span></li><li class="L6"><span class="pln">      </span><span class="tag">/&gt;</span></li><li class="L7"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;&lt;/p&gt;</span></li><li class="L8"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L9"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L0"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Attribute</th>
+                                        <th>Value</th>
+                                        <th>Req?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>data-validation-callback-callback</td>
+                                        <td>name of the callback function</td>
+                                        <td><i class="icon-ok"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>data-validation-callback-message</td>
+                                        <td>
+                                            your failure message<br>
+                                            <span class="label label-info">Note:</span> You can include this in the callback response in stead, to customise against the user's error
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>
+                                The callback function will be passed the element (wrapped in 
+                                jQuery), the field value, and a response function to call when 
+                                ready.
+                            </p>
+                            <p>
+                                The response function expects a single variable, a hash 
+                                containing 'value', 'valid' and optionally 'message'.
+                            </p>
+                            <p>
+                                The value must be returned, as this is checked against the 
+                                current value and stale responses are ignored. The 'valid' item 
+                                in the hash should evaluate to true only if the given value is 
+                                valid. The message item in the hash, if given, will override 
+                                the current message on the validator.
+                            </p>
+                            <p>
+                                Sound a bit complex? Don't worry and take a look at the code 
+                                tab, its pretty self explanatory.
+                            </p>
+                            <p>
+                                <span class="label label-warning">Warning:</span> While waiting 
+                                for your function to use the callback, the validator assumes 
+                                the field is valid. This is to guard against something failing 
+                                server-side and stopping the user from submitting the form. If 
+                                your callback takes a long time, the user could be able to 
+                                submit the form with invalid data without realising.
+                            </p>
+                        </div>
+                        <!-- ========================================== VALIDATORS_AJAX -->
+                        <div class="tab-pane" id="validators_ajax">
+                            <h3>AJAX</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#validators_ajax_preview" data-toggle="tab">Example</a></li>
+                                    <li><a href="#validators_ajax_code" data-toggle="tab">Code</a></li>
+                                    <li><a href="#validators_ajax_server" data-toggle="tab">Server</a></li>
+                                    <li><a href="#validators_ajax_response" data-toggle="tab">Response</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="validators_ajax_preview">
+                                        <p>
+                                            <span class="label label-important">Note:</span> As github doesn't offer dynamic pages yet, this form is only an example and accepts everything
+                                        </p>
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Type something</label>
+                                                <div class="controls">
+                                                    <input name="ajax_input" data-validation-ajax-ajax="/path/to/validator/script" type="text">
+                                                    <p class="help-block"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <button type="submit" class="btn btn-primary">
+                                                    Test Validation <i class="icon-ok icon-white"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="validators_ajax_code">
+                                        <pre class="prettyprint lang-html linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Type something</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span></li><li class="L5"><span class="pln">        </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span></li><li class="L6"><span class="pln">        </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"ajax_input"</span></li><li class="L7"><span class="pln">        </span><span class="atn">data-validation-ajax-ajax</span><span class="pun">=</span><span class="atv">"/path/to/validator/script"</span><span class="pln"> </span></li><li class="L8"><span class="pln">      </span><span class="tag">/&gt;</span></li><li class="L9"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;&lt;/p&gt;</span></li><li class="L0"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L2"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                                    </div>
+                                    <div class="tab-pane" id="validators_ajax_server">
+                                        <pre class="prettyprint lang-php linenums"><ol class="linenums"><li class="L0"><span class="pun">&lt;?</span><span class="pln">php</span></li><li class="L1"><span class="pln">  echo json_encode</span><span class="pun">(</span></li><li class="L2"><span class="pln">    array</span><span class="pun">(</span></li><li class="L3"><span class="pln">      </span><span class="str">"value"</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> $_REQUEST</span><span class="pun">[</span><span class="str">"value"</span><span class="pun">],</span></li><li class="L4"><span class="pln">      </span><span class="str">"valid"</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> preg_match</span><span class="pun">(</span><span class="str">"/^[A-Z].*$/"</span><span class="pun">,</span><span class="pln"> $_REQUEST</span><span class="pun">[</span><span class="str">"value"</span><span class="pun">]),</span></li><li class="L5"><span class="pln">      </span><span class="str">"message"</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"Must start with an uppercase letter"</span></li><li class="L6"><span class="pln">    </span><span class="pun">)</span></li><li class="L7"><span class="pln">  </span><span class="pun">);</span></li></ol></pre>
+                                    </div>
+                                    <div class="tab-pane" id="validators_ajax_response">
+                                        <pre class="prettyprint lang-json linenums"><ol class="linenums"><li class="L0"><span class="pun">{</span></li><li class="L1"><span class="pln">  </span><span class="str">"value"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"test"</span><span class="pun">,</span></li><li class="L2"><span class="pln">  </span><span class="str">"valid"</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span></li><li class="L3"><span class="pln">  </span><span class="str">"message"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Must start with an uppercase letter"</span></li><li class="L4"><span class="pun">}</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Attribute</th>
+                                        <th>Value</th>
+                                        <th>Req?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>data-validation-ajax-ajax</td>
+                                        <td>path to the validation page on the server</td>
+                                        <td><i class="icon-ok"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>data-validation-ajax-message</td>
+                                        <td>
+                                            your failure message<br>
+                                            <span class="label label-info">Note:</span> You can include this in the ajax response in stead, to customise against the user's error
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>
+                                The ajax call will be passed the field name and the field value.
+                            </p>
+                            <p>
+                                The response is expected as a JSON hash 
+                                containing 'value', 'valid' and optionally 'message'.
+                            </p>
+                            <p>
+                                Value must be returned, as this is checked against the 
+                                current value so stale responses are ignored. The 'valid' item 
+                                in the hash should evaluate to true only if the given value is 
+                                valid. The message item in the hash, if given, will override 
+                                the current message on the validator.
+                            </p>
+                            <p>
+                                Sound a bit complex? Don't worry and take a look at the server 
+                                tab, its pretty self explanatory.
+                            </p>
+                            <p>
+                                <span class="label label-warning">Warning:</span> While waiting 
+                                for AJAX call, the validator assumes the field is valid. This 
+                                is to guard against a something failing and stopping the user 
+                                from submitting the form. If your ajax takes a long time, the 
+                                user could be able to submit the form with invalid data without 
+                                realising.
+                            </p>
+                        </div>
+                        <!-- ========================================= VALIDATORS_NUMBER -->
+                        <div class="tab-pane" id="validators_number">
+                            <h3>Numbers</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#validators_number_preview" data-toggle="tab">Example</a></li>
+                                    <li><a href="#validators_number_code" data-toggle="tab">Code</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="validators_number_preview">
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Type a number</label>
+                                                <div class="controls">
+                                                    <input type="number">
+                                                    <p class="help-block"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <button type="submit" class="btn btn-primary">
+                                                    Test Validation <i class="icon-ok icon-white"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="validators_number_code">
+                                        <pre class="prettyprint lang-html linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Type a number</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"number"</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L5"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;&lt;/p&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L8"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-actions"</span><span class="tag">&gt;</span></li><li class="L9"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Attribute</th>
+                                        <th>Value</th>
+                                        <th>Req?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>type</td>
+                                        <td>"number"</td>
+                                        <td><i class="icon-ok"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>data-validation-number-message</td>
+                                        <td>
+                                            your failure message
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ===================================== VALIDATORS_CREATE_MIX -->
+                        <div class="tab-pane" id="validators_create_mix">
+                            <h3>Mix and multiply validators</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#validators_create_mix_preview" data-toggle="tab">Example</a></li>
+                                    <li><a href="#validators_create_mix_code" data-toggle="tab">Code</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="validators_create_mix_preview">
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <label class="control-label">Type something</label>
+                                                <div class="controls">
+                                                    <input data-validation-uppercase-regex="([^a-z]*[A-Z]*)*" data-validation-uppercase-message="Must be uppercase" data-validation-containsnumber-regex="([^0-9]*[0-9]+[^0-9]*)+" data-validation-containsnumber-message="Needs at least one number" type="text">
+                                                    <p class="help-block"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <button type="submit" class="btn btn-primary">
+                                                    Test Validation <i class="icon-ok icon-white"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="validators_create_mix_code">
+                                        <pre class="prettyprint lang-html linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"form-horizontal"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-group"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"control-label"</span><span class="tag">&gt;</span><span class="pln">Type something</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"controls"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span></li><li class="L5"><span class="pln">        </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span></li><li class="L6"><span class="pln">        </span><span class="atn">data-validation-uppercase-regex</span><span class="pun">=</span><span class="atv">"([^a-z]*[A-Z]*)*"</span><span class="pln"> </span></li><li class="L7"><span class="pln">        </span><span class="atn">data-validation-uppercase-message</span><span class="pun">=</span><span class="atv">"Must be uppercase"</span><span class="pln"> </span></li><li class="L8"><span class="pln">        </span><span class="atn">data-validation-containsnumber-regex</span><span class="pun">=</span><span class="atv">"([^0-9]*[0-9]+)+"</span><span class="pln"> </span></li><li class="L9"><span class="pln">        </span><span class="atn">data-validation-containsnumber-message</span><span class="pun">=</span><span class="atv">"Needs at least one number"</span><span class="pln"> </span></li><li class="L0"><span class="pln">      </span><span class="tag">/&gt;</span></li><li class="L1"><span class="pln">      </span><span class="tag">&lt;p</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"help-block"</span><span class="tag">&gt;&lt;/p&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L3"><span class="pln">  </span><span class="tag">&lt;/div&gt;</span></li><li class="L4"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>
+                                Have you noticed how all the validation messages data-attributes look the same? 
+                            </p>
+                            <code>data-validation-<em>validatorname</em>-message</code>
+                            <p>
+                                Validators are attached with names, so you can have multiple of 
+                                the same validator if you just name them differently.
+                            </p>
+                            <p>
+                                In the form above, I've added two Regex 
+validators, one requiring uppercase, the other requiring at least one 
+number. 
+                                Because they are named differently 
+('uppercase' and 'containsnumber' respectively) they are both applied 
+rather than cancelling eachother out.
+                            </p>
+                            <p>
+                                You can also use the HTML5 validators 
+multiple times by specifying them in data-attribute format, such as <code>data-validator-myvalidator-maxlength=10</code> to use the <code>maxlength</code> HTML5 validator, for example.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ################################################################# -->
+            <!--                                                     CONFIGURATION -->
+            <!-- ################################################################# -->
+
+            <h2 id="configuration">Configuration</h2>
+            <div class="row">
+                <div class="tabbable">
+                    <div class="span4">
+                        <ul class="nav-list nav well well-small">
+                            <li class="nav-header">Options</li>
+                            <li class="active"><a href="#configuration_options_sniffhtml" data-toggle="tab">Sniff HTML</a></li>
+                            <li><a href="#configuration_options_preventsubmit" data-toggle="tab">Prevent submit</a></li>
+                            <li><a href="#configuration_options_submiterror" data-toggle="tab">Submit Error</a></li>
+                            <li><a href="#configuration_options_submitsuccess" data-toggle="tab">Submit Success</a></li>
+                            <li><a href="#configuration_options_autoadd" data-toggle="tab">Auto-add elements</a></li>
+                            <li><a href="#configuration_options_filter" data-toggle="tab">Filter out validators</a></li>
+                            <li class="nav-header">Extending</li>
+                            <li><a href="#configuration_extend_events" data-toggle="tab">Events</a></li>
+                            <li><a href="#configuration_extend_functions" data-toggle="tab">Functions</a></li>
+                            <li><a href="#configuration_extend_override" data-toggle="tab">Overrides</a></li>
+                        </ul>
+                    </div>
+                    <div class="span8 tab-content">
+                        <div class="tab-pane active" id="configuration_options_sniffhtml">
+                            <h3>sniffHtml</h3>
+                            <p>
+                                Internally, jqBootstrapValidation only uses data attributes. 
+                                By default, it will also sniff for native HTML5 form validation attributes, as detailed above.
+                            </p>
+                            <p>
+                                If you decide this isn't what you want, 
+you can restrict jqBootstrapValidation to only data attributes by 
+setting sniffHtml to false when calling it on your form elements.
+                                <code>$(...).jqBootstrapValidation({sniffHtml: false});</code>
+                            </p>
+                        </div>
+                        <div class="tab-pane" id="configuration_options_preventsubmit">
+                            <h3>preventSubmit</h3>
+                            <p>
+                                By default, jqBootstrapValidtion will 
+prevent forms from submitting if any of their elements fail validation 
+by jqBootstrapValidation.
+                            </p>
+                            <p>
+                                If you decide this isn't what you want, 
+you can allow submitting of potentially invalid data for validation 
+server-side (or in case you think someone might have a genuine case for 
+exceptional data).
+                                <code>$(...).jqBootstrapValidation({preventSubmit: false});</code>
+                            </p>
+                        </div>
+                        <div class="tab-pane" id="configuration_options_submiterror">
+                            <h3>submitError</h3>
+                            <p>
+                                A javascript callback, used when a user is attempting to submit a form with invalid input.
+                            </p>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            $form
+                                        </td>
+                                        <td>
+                                            The form element which has the user attempted to submit (wrapped in jQuery)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            event
+                                        </td>
+                                        <td>
+                                            The submit event (note this 
+may have already been cancelled before you receive it depending on your 
+preventSubmit option).
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            errors
+                                        </td>
+                                        <td>
+                                            An object consisting of the 
+names of fields as keys, and the array of errors as values.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>
+                                If you decide you want to react to the 
+invalid submit attempt, you can write a function directly into the 
+jqBootstrapValidation call:
+                            </p><pre class="prettyprint linenums well well-small"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="com">/*...*/</span><span class="pun">).</span><span class="pln">jqBootstrapValidation</span><span class="pun">(</span></li><li class="L1"><span class="pln">  </span><span class="pun">{</span></li><li class="L2"><span class="pln">    submitError</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$form</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">,</span><span class="pln"> errors</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li><li class="L3"><span class="pln">      </span><span class="com">/* ... */</span><span class="pln"> </span></li><li class="L4"><span class="pln">    </span><span class="pun">}</span></li><li class="L5"><span class="pln">  </span><span class="pun">}</span></li><li class="L6"><span class="pun">);</span></li></ol></pre>
+                            <span class="label label-info">Note:</span> The event parameter is a full jQuery event and may be manipulated as normal.
+                            <p></p>
+                        </div>
+                        <div class="tab-pane" id="configuration_options_submitsuccess">
+                            <h3>submitSuccess</h3>
+                            <p>
+                                A javascript callback, used when a user is attempting to submit a form with valid input.
+                            </p>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            $form
+                                        </td>
+                                        <td>
+                                            The form element which has the user attempted to submit (wrapped in jQuery)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            event
+                                        </td>
+                                        <td>
+                                            The submit event (note this 
+may have already been cancelled before you receive it depending on your 
+preventSubmit option).
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>
+                                If you decide you want to react to the 
+submit attempt, you can write a function directly into the 
+jqBootstrapValidation call:
+                            </p><pre class="prettyprint linenums well well-small"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="com">/*...*/</span><span class="pun">).</span><span class="pln">jqBootstrapValidation</span><span class="pun">(</span></li><li class="L1"><span class="pln">  </span><span class="pun">{</span></li><li class="L2"><span class="pln">    submitSuccess</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$form</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span></li><li class="L3"><span class="pln">      </span><span class="com">/* ... */</span><span class="pln"> </span></li><li class="L4"><span class="pln">    </span><span class="pun">}</span></li><li class="L5"><span class="pln">  </span><span class="pun">}</span></li><li class="L6"><span class="pun">);</span></li></ol></pre>
+                            <span class="label label-info">Note:</span> The event parameter is a full jQuery event and may be manipulated as normal.
+                            <p></p>
+                        </div>
+                        <div class="tab-pane" id="configuration_options_autoadd">
+                            <h3>autoAdd</h3>
+                            <p>
+                                If your form is missing help blocks, for
+ example if you don't want an empty element hanging around near 'terms 
+and conditions' check boxes where no explanation would normally be 
+needed, jqBootstrapValidation will add them for you automatically.
+                            </p>
+                            <p>
+                                If you decide this isn't what you want, 
+for example if you only want the error styling without a warning 
+message, you can stop jqBootstrapValidation from creating extra 
+elements.
+                                <code>$(...).jqBootstrapValidation({autoAdd: {helpBlocks: false}});</code>
+                            </p>
+                        </div>
+                        <div class="tab-pane" id="configuration_options_filter">
+                            <h3>filter</h3>
+                            <p>
+                                jqBootstrapValidation doesn't assume 
+anything about your form, so if you need to ignore some validators in 
+multi-stage forms you can optionally filter them out of the submit event
+ with the filter option.
+                            </p>
+                            <p>
+                                The <code>this</code> variable is set to
+ a single element. If you return false, it will be ignored on submit 
+events. For example, the below ignores all elements that are not visible
+ on the page:
+                            </p>
+                            <pre class="prettyprint linenums well well-small"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(...).</span><span class="pln">jqBootstrapValidation</span><span class="pun">({</span></li><li class="L1"><span class="pln">  filter</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="kwd">is</span><span class="pun">(</span><span class="str">":visible"</span><span class="pun">);</span></li><li class="L3"><span class="pln">  </span><span class="pun">}</span></li><li class="L4"><span class="pun">});</span></li></ol></pre>
+                        </div>
+                        <div class="tab-pane" id="configuration_extend_events">
+                            <h3>Events</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#configuration_extend_events_validation" data-toggle="tab">Validation</a></li>
+                                    <li><a href="#configuration_extend_events_getValidators" data-toggle="tab">getValidators</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="configuration_extend_events_validation">
+                                        <h4>validation.validation</h4>
+                                        <p>
+                                            Returns an array of validation errors for a given object.
+                                        </p>
+                                        <p>
+                                            If no errors are found, returns an empty array.
+                                        </p>
+                                        <p>
+                                            <span class="label label-info">Note</span> Must be called on a single element via <a href="http://api.jquery.com/triggerHandler/">triggerHandler</a>.<br> 
+                                            To collect all errors for a set of elements, you could use an <a href="http://api.jquery.com/jQuery.each/">each</a> loop:
+                                        </p>
+                                        <pre class="prettyprint linenums well well-small"><ol class="linenums"><li class="L0"><span class="kwd">var</span><span class="pln"> errorMessages </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li><li class="L1"><span class="pln">$</span><span class="pun">(</span><span class="str">"..."</span><span class="pun">).</span><span class="pln">each</span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> el</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">  errorMessages </span><span class="pun">=</span><span class="pln"> errorMessages</span><span class="pun">.</span><span class="pln">concat</span><span class="pun">(</span></li><li class="L3"><span class="pln">      $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">triggerHandler</span><span class="pun">(</span><span class="str">"validation.validation"</span><span class="pun">)</span></li><li class="L4"><span class="pln">  </span><span class="pun">);</span></li><li class="L5"><span class="pun">});</span></li></ol></pre>
+                                        If you just want a list of all 
+error messages for a group of elements, see the "collectErrors" 
+jqBoostrapValidation function.
+                                    </div>
+                                    <div class="tab-pane" id="configuration_extend_events_getValidators">
+                                        <h4>getValidators.validation</h4>
+                                        <p>
+                                            Returns the internal array of valiators for inspection.
+                                        </p>
+                                        <span class="label label-info">Note</span> Must be called on a single element via <a href="http://api.jquery.com/triggerHandler/">triggerHandler</a>.
+                                        <pre class="prettyprint linenums well well-small"><ol class="linenums"><li class="L0"><span class="kwd">var</span><span class="pln"> myValidators </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">"..."</span><span class="pun">).</span><span class="pln">first</span><span class="pun">().</span><span class="pln">triggerHandler</span><span class="pun">(</span><span class="str">"getValidators.validation"</span><span class="pun">);</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="configuration_extend_functions">
+                            <h3>Functions</h3>
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#configuration_extend_functions_destroy" data-toggle="tab">Destroy</a></li>
+                                    <li><a href="#configuration_extend_functions_collectErrors" data-toggle="tab">Collect errors</a></li>
+                                    <li><a href="#configuration_extend_functions_override" data-toggle="tab">Override</a></li>
+                                    <li><a href="#configuration_extend_functions_hasErrors" data-toggle="tab">Has Errors</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="configuration_extend_functions_destroy">
+                                        <h4>destroy</h4>
+                                        <p>
+                                            Removes all 
+jqBootstrapValidation events attached to the given elements, and resets 
+their control-block classes and help-block text to their original 
+values.
+                                        </p>
+                                        <pre class="prettyprint linenums well well-small"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">"..."</span><span class="pun">).</span><span class="pln">jqBootstrapValidation</span><span class="pun">(</span><span class="str">"destroy"</span><span class="pun">);</span></li></ol></pre>
+                                    </div>
+                                    <div class="tab-pane" id="configuration_extend_functions_collectErrors">
+                                        <h4>collectErrors</h4>
+                                        <p>
+                                            Collects an object 
+containing arrays of all error messages associated with each invalid 
+element.
+                                        </p>
+                                        <pre class="prettyprint linenums well well-small"><ol class="linenums"><li class="L0"><span class="kwd">var</span><span class="pln"> errors </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">"..."</span><span class="pun">).</span><span class="pln">jqBootstrapValidation</span><span class="pun">(</span><span class="str">"collectErrors"</span><span class="pun">);</span></li></ol></pre>
+                                        <pre class="prettyprint well well-small"><span class="pun">{</span><span class="pln">
+  </span><span class="str">"username"</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">"..."</span><span class="pun">,</span><span class="pln"> </span><span class="str">"..."</span><span class="pun">],</span><span class="pln">
+  </span><span class="str">"password"</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">"..."</span><span class="pun">,</span><span class="pln"> </span><span class="str">"..."</span><span class="pun">]</span><span class="pln">
+</span><span class="pun">}</span></pre>
+                                    </div>
+                                    <div class="tab-pane" id="configuration_extend_functions_override">
+                                        <h4>override</h4>
+                                        <p>
+                                            Overrides the internal 
+array, to change the behaviour of default functions, add extra 
+validators, and so on.
+                                        </p>
+                                        <p>
+                                            <span class="label label-important">WARNING</span> This has the potential to break jqBootstrapValidation. Tread carefully.<br>
+                                            You should only use the 
+override function if you are certain you need to, or if you're adding 
+new validators
+                                        </p>
+                                        <p>
+                                            Because this is a big topic,
+ it has it's own section. See the "Overrides" configuration option.
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane" id="configuration_extend_functions_hasErrors">
+                                        <h4>hasErrors</h4>
+                                        <p>
+                                            Returns true if the given collection of elements would show an error when submitted.
+                                        </p>
+                                        <pre class="prettyprint linenums well well-small"><ol class="linenums"><li class="L0"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="str">"..."</span><span class="pun">).</span><span class="pln">jqBootstrapValidation</span><span class="pun">(</span><span class="str">"hasErrors"</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">  alert</span><span class="pun">(</span><span class="str">"Something is wrong!"</span><span class="pun">);</span></li><li class="L2"><span class="pun">}</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="configuration_extend_override">
+                            <h3>Override</h3>
+                            <span class="label label-important">WARNING</span> This has the potential to break jqBootstrapValidation. Tread carefully.<br><br>
+
+                            <p>
+                                Internally, all of 
+jqBootstrapValidation's functions are stored in one big object, which 
+you can override by calling the "override" function with a new object to
+ merge on top of it. Anything you don't set, is left as it was.
+                            </p>
+                            <p>
+                                Note that as the objects are merged 
+together, you can define your own extra functions, options, etc.
+                            </p>
+                            <p>
+                                This allows you to <a href="http://paulirish.com/2010/duck-punching-with-jquery/">duck punch</a> your own solutions, and set up the options in one place rather than on every call to <code>.jqBootstrapValidation()</code>
+                            </p>
+
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#configuration_extend_override_options" data-toggle="tab">Options</a></li>
+                                    <li><a href="#configuration_extend_override_methods" data-toggle="tab">Methods</a></li>
+                                    <li><a href="#configuration_extend_override_validatortypes" data-toggle="tab">Validator Types</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="configuration_extend_override_options">
+                                        <h4>options</h4>
+                                        <p>
+                                            <span class="label label-warning">Question</span> If you override the defaults, will you need to tell anyone else?
+                                        </p>
+                                        <p>
+                                            You can override the default
+ options by calling the 'override' function and setting the 'options' 
+key with the values you'd use when calling <code>.jqBootstrapValidation()</code> on a set of elements. As this updates the internal object, all subsequent calls to <code>.jqBootstrapValidation()</code> will use the new options.
+                                        </p>
+                                        <p>
+                                            For example, to stop 
+jqBootstrapValidation from preventing an invalid form from being 
+submitted by default:
+                                        </p>
+                                        <pre class="prettyprint linenums well well-small"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">.</span><span class="pln">jqBootstrapValidation</span><span class="pun">(</span><span class="str">"override"</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">options</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">preventSubmit</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">}});</span></li></ol></pre>
+                                    </div>
+                                    <div class="tab-pane" id="configuration_extend_override_methods">
+                                        <h4>methods</h4>
+                                        <p>
+                                            Allows you to override the methods you can call on jqBootstrapValidation:
+                                        </p>
+                                        <table class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Function</th>
+                                                    <th>Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>init</td>
+                                                    <td>Used when you call jqBootstrapValidation on a set of elements to set up the validators and events.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>destroy</td>
+                                                    <td>Removes all 
+hooks jqBootstrapValidation has set on the given set of elements, and 
+any extra elements jqBootstrapValidaiton has added.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>collectErrors</td>
+                                                    <td>returns an array containing the errors generated by the given collection of elements (or an empty object if none)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>override</td>
+                                                    <td>this function, used to override other functions</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p>
+                                            For example, to prevent anyone from overriding anything else once you're done:
+                                        </p>
+                                        <pre class="prettyprint linenums well well-small"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">.</span><span class="pln">jqBootstrapValidation</span><span class="pun">(</span><span class="str">"override"</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">methods</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="kwd">override</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{}</span><span class="pln"> </span><span class="pun">}});</span></li></ol></pre>
+                                    </div>
+                                    <div class="tab-pane" id="configuration_extend_override_validatortypes">
+                                        <h4>validatorTypes</h4>
+                                        <p>
+                                            Allows you to override the 
+validation methods used when validating a field. You must write the <code>init</code> and <code>validate</code> functions.
+                                        </p>
+                                        <p>
+                                            If your test is too complex 
+for a regex, this is the primary method of adding a custom validator.
+                                        </p>
+                                        <p>
+                                            For example:
+                                        </p>
+                                        <pre class="prettyprint linenums well well-small"><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">.</span><span class="pln">jqBootstrapValidation</span><span class="pun">(</span></li><li class="L1"><span class="pln">  </span><span class="str">"override"</span><span class="pun">,</span><span class="pln"> </span></li><li class="L2"><span class="pln">  </span><span class="pun">{</span></li><li class="L3"><span class="pln">    validatorTypes</span><span class="pun">:</span><span class="pln"> </span></li><li class="L4"><span class="pln">    </span><span class="pun">{</span></li><li class="L5"><span class="pln">      check_username_ok</span><span class="pun">:</span><span class="pln"> </span><span class="com">// the name of our validator</span></li><li class="L6"><span class="pln">      </span><span class="pun">{</span></li><li class="L7"><span class="pln">        </span><span class="com">// the 'name' attribute must match the name used above</span></li><li class="L8"><span class="pln">        name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'check_something_important'</span><span class="pun">,</span></li><li class="L9"><span class="pln">        init</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$this</span><span class="pun">,</span><span class="pln"> name</span><span class="pun">)</span></li><li class="L0"><span class="pln">        </span><span class="pun">{</span></li><li class="L1"><span class="pln">          </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">            like</span><span class="pun">:</span><span class="pln"> </span><span class="str">"green eggs and ham"</span><span class="pun">,</span></li><li class="L3"><span class="pln">            iAm</span><span class="pun">:</span><span class="pln"> </span><span class="str">"sam i am"</span></li><li class="L4"><span class="pln">          </span><span class="pun">};</span></li><li class="L5"><span class="pln">        </span><span class="pun">},</span></li><li class="L6"><span class="pln">        validate</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$this</span><span class="pun">,</span><span class="pln"> value</span><span class="pun">,</span><span class="pln"> validator</span><span class="pun">)</span><span class="pln"> </span></li><li class="L7"><span class="pln">        </span><span class="pun">{</span></li><li class="L8"><span class="pln">          console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">validator</span><span class="pun">.</span><span class="pln">like</span><span class="pun">);</span></li><li class="L9"><span class="pln">          </span><span class="com">// "green eggs and ham"</span></li><li class="L0"><span class="pln">          console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">validator</span><span class="pun">.</span><span class="pln">iAm</span><span class="pun">);</span></li><li class="L1"><span class="pln">          </span><span class="com">// "sam i am"</span></li><li class="L2"><span class="pln">          console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">validator</span><span class="pun">.</span><span class="pln">message</span><span class="pun">);</span></li><li class="L3"><span class="pln">          </span><span class="com">// -- the message displayed for errors --</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">          validator</span><span class="pun">.</span><span class="pln">message </span><span class="pun">=</span><span class="pln"> </span><span class="str">"You can override the message here"</span><span class="pun">;</span></li><li class="L6"><span class="pln">          </span></li><li class="L7"><span class="pln">          </span><span class="com">// Perform some checks on the value</span></li><li class="L8"><span class="pln">          okValue </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> anExternalCheck</span><span class="pun">(</span><span class="pln">value</span><span class="pun">);</span></li><li class="L9"><span class="pln">          </span></li><li class="L0"><span class="pln">          </span><span class="com">// true for valid values, false to display error message</span></li><li class="L1"><span class="pln">          </span><span class="kwd">return</span><span class="pln"> okValue</span><span class="pun">;</span></li><li class="L2"><span class="pln">        </span><span class="pun">}</span></li><li class="L3"><span class="pln">      </span><span class="pun">}</span></li><li class="L4"><span class="pln">    </span><span class="pun">}</span></li><li class="L5"><span class="pln">  </span><span class="pun">}</span></li><li class="L6"><span class="pun">);</span></li></ol></pre>
+                                        <table class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Attribute</th>
+                                                    <th>Type</th>
+                                                    <th>Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        init()
+                                                    </td>
+                                                    <td>
+                                                        function
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            Called on 
+each element passed to jqBootstrapValidation that uses the current 
+validator.
+                                                        </p>
+                                                        <p>
+                                                            Returns an 
+object with values that will be copied onto the validator object for 
+future use.
+                                                        </p>
+                                                        <table class="table table-bordered table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Parameter</th>
+                                                                    <th>Description</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        $this
+                                                                    </td>
+                                                                    <td>
+                                                                        
+The element passed to jqBootstrapValidation (wrapped in jQuery)
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        name
+                                                                    </td>
+                                                                    <td>
+                                                                        
+The name given to this validator in the html, eg `peter` from 
+`data-validation-peter-myvalidator`
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        validate()
+                                                    </td>
+                                                    <td>
+                                                        function
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            Called on each element as it is validated.
+                                                        </p>
+                                                        <p>
+                                                            Returns false if an error is found.
+                                                        </p>
+                                                        <table class="table table-bordered table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Parameter</th>
+                                                                    <th>Description</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        $this
+                                                                    </td>
+                                                                    <td>
+                                                                        The element to be validated (wrapped in jQuery)
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        value
+                                                                    </td>
+                                                                    <td>
+                                                                        The current value of the element
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        validator
+                                                                    </td>
+                                                                    <td>
+                                                                        
+The validator object. Note you can access attributes returned from the 
+init function.
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>message</td>
+                                                    <td>
+                                                        string
+                                                    </td>
+                                                    <td>
+                                                        Message displayed when the validator fails.
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <p>
+                                This section is still being written. The current sections to-do are:
+                            </p>
+
+                            <ul>
+                                <li>validatorTypes</li>
+                                <li>builtInValidators</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2 id="faq">FAQ</h2>
+            <div class="row">
+                <div class="tabbable">
+                    <div class="span4">
+                        <ul class="nav-list nav well well-small">
+                            <li class="active"><a href="#faq_formats" data-toggle="tab">Where is the date/time/tel validator?</a></li>
+                            <li class="nav-header"></li>
+                            <li><a href="#faq_ask" data-toggle="tab">Where do I ask a question?</a></li>
+                            <li><a href="#faq_bug" data-toggle="tab">Where do I report a bug?</a></li>
+                        </ul>
+                    </div>
+                    <div class="span8 tab-content">
+                        <div class="tab-pane active" id="faq_formats">
+                            <h3>Where is the date/time/tel/currency validator?</h3>
+                            <p>
+                                Simply put, I'm in the UK and you 
+probably aren't. English might not even be your first language.
+                            </p>
+                            <p>
+                                I can't possibly know how you write dates, when even the UK and USA can't agree.
+                            </p>
+                            <p>
+                                I can't find a nice cross platform way 
+of detecting someone's region preferences easily. If there is enough 
+demand (<a href="http://www.twitter.com/ReactiveRaven">@ReactiveRaven</a>) I'll add region support, but for now you may be better finding a non-restrictive regex for your local format.
+                            </p>
+                        </div>
+                        <div class="tab-pane" id="faq_ask">
+                            <h3>Where do I ask a question?</h3>
+                            <p>
+                                The best place to reach me is on twitter <a href="http://www.twitter.com/ReactiveRaven">@ReactiveRaven</a>. If you don't have a twitter account, you could <a href="mailto:reactiveraven@reactiveraven.co.uk">email me</a> in stead. It turns out I'm terrible at answering emails though, so please don't be surprised if I'm slow to respond. Sorry!
+                            </p>
+                            <p>
+                                If you think you've found a bug, please do file an <a href="https://github.com/ReactiveRaven/jqBootstrapValidation/issues">issue</a> on github or better yet, <a href="https://github.com/ReactiveRaven/jqBootstrapValidation">fork</a> and send a pull request.
+                            </p>
+                        </div>
+                        <div class="tab-pane" id="faq_bug">
+                            <h3>Where do I report a bug?</h3>
+                            <p>
+                                If you've found a bug, please do file an <a href="https://github.com/ReactiveRaven/jqBootstrapValidation/issues">issue</a> on github or better yet, <a href="https://github.com/ReactiveRaven/jqBootstrapValidation">fork</a> and send a pull request.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3 offset9">
+                    Created by David Godfrey<br>
+                    AKA <a href="http://www.twitter.com/ReactiveRaven">@ReactiveRaven</a><br>
+                    No twitter? <a href="mailto:reactiveraven@reactiveraven.co.uk">Email me</a>.
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    
+
+</body></html>

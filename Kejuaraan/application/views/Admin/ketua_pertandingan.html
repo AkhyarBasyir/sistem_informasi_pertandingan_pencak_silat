@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Tapak Suci - Wasit Juri</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="assets/penilaian/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" type="text/css" href="assets/penilaian/penilaian.css">
+
+</head>
+
+<body>
+
+ <nav class="navbar navbar-inverse ">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Tapak Suci</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Button Size
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#" onclick="standardButton()">Standard</a></li>
+              <li><a href="#" onclick="bigButton()">Big</a></li>
+              <li><a href="#" onclick="hugeButton()">Huge</a></li>
+              <li><a href="#" onclick="extrahugeButton()">Extra Huge</a></li>
+            </ul>
+          </li> 
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#"><span class="glyphicon glyphicon-log-out"></span> Keluar</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li> 
+            <form class="form-inline cari-pertandingan" role="form">
+              <div class="form-group">
+                <label for="email">Cari Pertandingan:</label>
+                <input type="email" class="form-control" id="email">
+                <button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-search"></span> Cari</button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row hidden-xs hidden-sm">
+      <div class="col-lg-5 col-md-5 cl-sm-5 col-xs-5">
+        <img src="Wahaz.jpg" class="foto-pesilat-merah img-pesilat" alt="Atlit Sudut Merah"> 
+        <div class="nama-pesilat pesilat-merah">
+          <h1>Dummy (74 Kg)</h1>
+          <hr>
+          <H2>Universitas Brawijaya</H2>
+        </div>
+        <div class="score score-merah">
+          <h2>24</h2>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 cl-sm-2 col-xs-2">
+        <div class="timer">
+          <h1>03 : 20</h1>
+          <hr>
+          <h2>Babak 2</h2>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-5 cl-sm-5 col-xs-5">
+        <img src="Wahaz.jpg" class="foto-pesilat-biru img-pesilat" alt="Atlit Sudut Biru"> 
+        <div class="nama-pesilat pesilat-biru">
+          <h1>Dummy (74 Kg)</h1>
+          <hr>
+          <H2>Universitas Brawijaya</H2>
+        </div>
+        <div class="score score-biru">
+          <h2>19</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row hidden-lg hidden-md">
+      <div class="col-lg-2 col-md-2">
+        <div class="panel panel-green">
+          <div class="panel-heading" style="text-align: center;">
+            Partai 124
+          </div>
+          <div class="panel-body" style="overflow-y: scroll;">
+            <div class="row">
+              <div class="col-lg-5 col-md-5 col-sm-2 col-xs-2">
+                Kategori
+              </div>
+              <div class="col-lg-7 col-md-7 col-sm-4 col-xs-4">
+                : Tanding
+              </div>
+              <div class="col-lg-5 col-md-5 col-sm-2 col-xs-2">
+                Kelas
+              </div>
+              <div class="col-lg-7 col-md-7 col-sm-4 col-xs-4">
+                : 74 Kg
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-5 col-md-5 col-sm-2 col-xs-2">
+                Usia
+              </div>
+              <div class="col-lg-7 col-md-7 col-sm-4 col-xs-4">
+                : Dewasa
+              </div>
+              <div class="col-lg-5 col-md-5 col-sm-2 col-xs-2">
+                Babak
+              </div>
+              <div class="col-lg-7 col-md-7 col-sm-4 col-xs-4">
+                : 4 Besar
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
+                Wasit
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-4 col-xs-4">
+                : Drs Siswotoro
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
+                Juri 1
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-4 col-xs-4">
+                : M Taqiyudin
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
+                Juri 2
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-4 col-xs-4">
+                : Achmad Hadi
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
+                Juri 3
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-4 col-xs-4">
+                : Rizal Maulana
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
+                Juri 4
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-4 col-xs-4">
+                : Luqman 
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
+                Juri 5
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-4 col-xs-4">
+                : Abdul Aziz
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-xs-12 mini-timer" style="margin-top:15px">
+                <h1>03 : 12</h1>
+                <h3>Babak 1</h3>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer" style="text-align: center;">
+            Partai 124
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row penilaian">
+      <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+        <div class="panel panel-red">
+          <div class="panel-heading">
+            Sudut Merah
+          </div>
+          <div class="panel-body">
+<div class="table-responsive">
+              <table class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Juri</th>
+                    <th>Babak 1</th>
+                    <th>Babak 2</th>
+                    <th>Babak 3</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>12</td>
+                    <td>9</td>
+                    <td>15</td>
+                    <td><button class="btn btn-success btn-block">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>12</td>
+                    <td>14</td>
+                    <td><button class="btn btn-success btn-block">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>22</td>
+                    <td>20</td>
+                    <td>16</td>
+                    <td><button class="btn btn-success btn-block">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>22</td>
+                    <td>12</td>
+                    <td>11</td>
+                    <td><button class="btn btn-success btn-block">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>23</td>
+                    <td>12</td>
+                    <td>14</td>
+                    <td><button class="btn btn-success btn-block">Edit</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="panel-footer" style="text-align: center;">
+            &copy; 2018, Tapak Suci Indonesia
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 hidden-xs hidden-sm">
+        <div class="panel panel-green">
+          <div class="panel-heading" style="text-align: center;">
+            Partai 124
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-4 col-md-4">
+                Kategori
+              </div>
+              <div class="col-lg-8 col-md-8">
+                : Tanding
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4">
+                Kelas
+              </div>
+              <div class="col-lg-8 col-md-8">
+                : 74 Kg
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4">
+                Usia
+              </div>
+              <div class="col-lg-8 col-md-8">
+                : Dewasa
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4">
+                Babak
+              </div>
+              <div class="col-lg-8 col-md-8">
+                : 4 Besar
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4">
+                Wasit
+              </div>
+              <div class="col-lg-8 col-md-8">
+                : Drs Siswotoro
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4">
+                Juri 1
+              </div>
+              <div class="col-lg-8 col-md-8">
+                : M Taqiyudin
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4">
+                Juri 2
+              </div>
+              <div class="col-lg-8 col-md-8">
+                : Achmad Hadi
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4">
+                Juri 3
+              </div>
+              <div class="col-lg-8 col-md-8">
+                : Rizal Maulana
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4">
+                Juri 4
+              </div>
+              <div class="col-lg-8 col-md-8">
+                : Luqman 
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4">
+                Juri 5
+              </div>
+              <div class="col-lg-8 col-md-8">
+                : Abdul Aziz
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer" style="text-align: center;">
+            Partai 124
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+        <div class="panel panel-blue">
+          <div class="panel-heading">
+            Sudut Biru
+          </div>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Juri</th>
+                    <th>Babak 1</th>
+                    <th>Babak 2</th>
+                    <th>Babak 3</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>12</td>
+                    <td>9</td>
+                    <td>15</td>
+                    <td><button class="btn btn-success btn-block">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>13</td>
+                    <td>12</td>
+                    <td>14</td>
+                    <td><button class="btn btn-success btn-block">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>22</td>
+                    <td>20</td>
+                    <td>16</td>
+                    <td><button class="btn btn-success btn-block">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>22</td>
+                    <td>12</td>
+                    <td>11</td>
+                    <td><button class="btn btn-success btn-block">Edit</button></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>23</td>
+                    <td>12</td>
+                    <td>14</td>
+                    <td><button class="btn btn-success btn-block">Edit</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="panel-footer" style="text-align: center;">
+            &copy; 2018, Tapak Suci Indonesia
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="assets/penilaian/jquery/jquery.min.js"></script>
+  <script src="assets/penilaian/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+  <script>
+    function tes(){
+      alert('asdas');
+    }
+
+    function standardButton(){
+      $('.penilaian .btn').css({"padding" : "6px 12px", "margin-top" : "0px"});
+    } 
+
+    function bigButton(){
+      $('.penilaian .btn').css({"padding" : "8px 6px", "margin-top" : "8px"});
+    }
+
+    function hugeButton(){
+      $('.penilaian .btn').css({"padding" : "12px 6px", "margin-top" : "8px"});
+    }
+
+    function extrahugeButton(){
+      $('.penilaian .btn').css({"padding" : "18px 6px", "margin-top" : "6px"});
+    }
+
+    $(document).ready(function (){
+     if ($(window).width() <= 768) {
+      $('.penilaian .btn-danger').html('<span class="glyphicon glyphicon-chevron-left"></span>');    
+    }
+  });
+
+
+</script>
+</body>
+
+</html>

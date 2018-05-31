@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Tapak Suci - Timer</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="assets/penilaian/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" type="text/css" href="assets/penilaian/penilaian.css">
+
+</head>
+
+<body>
+
+ <nav class="navbar navbar-inverse ">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Tapak Suci</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#"><span class="glyphicon glyphicon-log-out"></span> Keluar</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li> 
+          <form class="form-inline cari-pertandingan" role="form">
+            <div class="form-group">
+              <label for="email">Cari Pertandingan:</label>
+              <input type="email" class="form-control" id="email">
+              <button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-search"></span> Cari</button>
+            </div>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container container-timer">
+  <div class="row hidden-xs hidden-sm">
+    <div class="col-lg-5 col-md-5 cl-sm-5 col-xs-5">
+      <img src="Wahaz.jpg" class="foto-pesilat-merah img-pesilat" alt="Atlit Sudut Merah"> 
+      <div class="nama-pesilat pesilat-merah">
+        <h1>Dummy</h1>
+        <hr>
+        <H2>Universitas Brawijaya</H2>
+      </div>
+      <div class="score score-merah">
+          <h2>24</h2>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-2 cl-sm-2 col-xs-2">
+      <div class="timer">
+        <h1>03 : 20</h1>
+        <hr>
+        <h2>Babak 2</h2>
+      </div>
+    </div>
+    <div class="col-lg-5 col-md-5 cl-sm-5 col-xs-5">
+      <img src="Wahaz.jpg" class="foto-pesilat-biru img-pesilat" alt="Atlit Sudut Biru"> 
+      <div class="nama-pesilat pesilat-biru">
+        <h1>Dummy</h1>
+        <hr>
+        <H2>Universitas Brawijaya</H2>
+      </div>
+      <div class="score score-biru">
+          <h2>19</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 20px;" >
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+      <div class="panel panel-green">
+        <div class="panel-heading" style="text-align: center;">
+          Partai 124
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-2 col-xs-2">
+              Kategori
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-4 col-xs-4">
+              : Tanding
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-2 col-xs-2">
+              Kelas
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-4 col-xs-4">
+              : 74 Kg
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-2 col-xs-2">
+              Usia
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-4 col-xs-4">
+              : Dewasa
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-2 col-xs-2">
+              Babak
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-4 col-xs-4">
+              : 4 Besar
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer" style="text-align: center;">
+          Partai 124
+        </div>
+      </div>
+    </div>
+    <div  class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+      <div class="button-next-round">
+          <h1>Next Round</h1> 
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+      <div class="button-timer">
+      <span class="glyphicon glyphicon-play"></span>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+      <div class="button-undo-timer">
+      <h1>Undo</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="assets/penilaian/jquery/jquery.min.js"></script>
+<script src="assets/penilaian/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+<script>
+  function tes(){
+    alert('asdas');
+  }
+  $(document).ready(function (){
+   if ($(window).width() <= 768) {
+    $('.penilaian .btn-danger').html('<span class="glyphicon glyphicon-chevron-left"></span>');    
+  }
+});
+
+
+</script>
+</body>
+
+</html>

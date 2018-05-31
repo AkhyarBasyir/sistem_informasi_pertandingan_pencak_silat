@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Tapak Suci - Wasit Juri</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="assets/penilaian/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" type="text/css" href="assets/penilaian/penilaian.css">
+
+</head>
+
+<body>
+
+ <nav class="navbar navbar-inverse ">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Tapak Suci</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Button Size
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#" onclick="standardButton()">Standard</a></li>
+              <li><a href="#" onclick="bigButton()">Big</a></li>
+              <li><a href="#" onclick="hugeButton()">Huge</a></li>
+              <li><a href="#" onclick="extrahugeButton()">Extra Huge</a></li>
+            </ul>
+          </li> 
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#"><span class="glyphicon glyphicon-log-out"></span> Keluar</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li> 
+            <form class="form-inline cari-pertandingan" role="form">
+              <div class="form-group">
+                <label for="email">Cari Pertandingan:</label>
+                <input type="email" class="form-control" id="email">
+                <button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-search"></span> Cari</button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row hidden-xs hidden-sm">
+      <div class="col-lg-5 col-md-5 cl-sm-5 col-xs-5">
+        <img src="Wahaz.jpg" class="foto-pesilat-merah img-pesilat" alt="Atlit Sudut Merah"> 
+        <div class="nama-pesilat pesilat-merah">
+          <h1>Dummy</h1>
+          <hr>
+          <H2>Universitas Brawijaya</H2>
+        </div>
+        <div class="score score-merah">
+          <h2 id="point-merah">0</h2>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 cl-sm-2 col-xs-2">
+        <div class="timer">
+          <h1>03 : 20</h1>
+          <hr>
+          <h2>Babak 2</h2>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-5 cl-sm-5 col-xs-5">
+        <img src="Wahaz.jpg" class="foto-pesilat-biru img-pesilat" alt="Atlit Sudut Biru"> 
+        <div class="nama-pesilat pesilat-biru">
+          <h1>Dummy</h1>
+          <hr>
+          <H2>Universitas Brawijaya</H2>
+        </div>
+        <div class="score score-biru">
+          <h2 id="point-biru">0</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row hidden-lg hidden-md">
+      <div class="col-lg-2 col-md-2">
+        <div class="panel panel-green">
+          <div class="panel-heading" style="text-align: center;">
+            Partai 124
+          </div>
+          <div class="panel-body" style="overflow-y: scroll;">
+            <div class="row">
+              <div class="col-lg-5 col-md-5 col-sm-2 col-xs-2">
+                Kategori
+              </div>
+              <div class="col-lg-7 col-md-7 col-sm-4 col-xs-4">
+                : Tanding
+              </div>
+              <div class="col-lg-5 col-md-5 col-sm-2 col-xs-2">
+                Kelas
+              </div>
+              <div class="col-lg-7 col-md-7 col-sm-4 col-xs-4">
+                : 74 Kg
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-5 col-md-5 col-sm-2 col-xs-2">
+                Usia
+              </div>
+              <div class="col-lg-7 col-md-7 col-sm-4 col-xs-4">
+                : Dewasa
+              </div>
+              <div class="col-lg-5 col-md-5 col-sm-2 col-xs-2">
+                Babak
+              </div>
+              <div class="col-lg-7 col-md-7 col-sm-4 col-xs-4">
+                : 4 Besar
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-xs-12 mini-timer" style="margin-top:15px">
+                <h1>03 : 12</h1>
+                <h3>Babak 1</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-xs-12" style="margin-top:15px">
+                <button class="btn btn-block btn-success">Babak Baru</button>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer" style="text-align: center;">
+            Partai 124
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row penilaian">
+      <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+        <div class="panel panel-red">
+          <div class="panel-heading">
+            Sudut Merah
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-info" id="btn1-merah">1</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-info" id="btn2-merah">2</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-info" id="btn3-merah">3</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-success" id="btn11-merah">1 + 1</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-success" id="btn12-merah">1 + 2</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-success" id="btn13-merah">1 + 3</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-danger" id="btnDel-merah"><span class="glyphicon glyphicon-chevron-left"></span>Delete</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-warning" id="btn-1-merah"> -1</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-warning" id="btn-2-merah"> -2</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-warning" id="btn-5-merah"> -5</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-warning" id="btn-10-merah"> -10</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <div class="form-group">
+                  <label class="hidden-xs hidden-sm">Babak 1</label>
+                  <textarea class="form-control" disabled rows="1" name="merah-babak1"></textarea>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="form-group">
+                  <label class="hidden-xs hidden-sm">Total</label>
+                  <textarea class="form-control"disabled  rows="1" name="merah-babak1-total"></textarea>
+                </div>
+              </div>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <div class="form-group">
+                  <label class="hidden-xs hidden-sm">Babak 2</label>
+                  <textarea class="form-control" disabled rows="1" name="merah-babak2"></textarea>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="form-group">
+                  <label class="hidden-xs hidden-sm">Total</label>
+                  <textarea class="form-control"  disabled rows="1" name="merah-babak2-total"></textarea>
+                </div>
+              </div>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <div class="form-group">
+                  <label class="hidden-xs hidden-sm">Babak 3</label>
+                  <textarea class="form-control" disabled rows="1" name="merah-babak3"></textarea>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="form-group">
+                  <label class="hidden-xs hidden-sm">Total</label>
+                  <textarea class="form-control" disabled rows="1" name="merah-babak3-total"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer" style="text-align: center;">
+            &copy; 2018, Tapak Suci Indonesia
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-2 hidden-xs hidden-sm">
+        <div class="panel panel-green">
+          <div class="panel-heading" style="text-align: center;">
+            Partai 124
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-5 col-md-5">
+                Kategori
+              </div>
+              <div class="col-lg-7 col-md-7">
+                : Tanding
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-5 col-md-5">
+                Kelas
+              </div>
+              <div class="col-lg-7 col-md-7">
+                : 74 Kg
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-5 col-md-5">
+                Usia
+              </div>
+              <div class="col-lg-7 col-md-7">
+                : Dewasa
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-5 col-md-5">
+                Babak
+              </div>
+              <div class="col-lg-7 col-md-7">
+                : 4 Besar
+              </div>
+            </div>
+            <div class="row">
+              <button class="btn btn-block btn-success" id="pindah_babak" ">Babak Baru</button>
+            </div>
+          </div>
+          <div class="panel-footer" style="text-align: center;">
+            Partai 124
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+        <div class="panel panel-blue">
+          <div class="panel-heading">
+            Sudut Biru
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-info" id="btn1-biru">1</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-info" id="btn2-biru">2</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-info" id="btn3-biru">3</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-success" id="btn11-biru">1 + 1</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-success" id="btn12-biru">1 + 2</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-success" id="btn13-biru">1 + 3</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-danger" id="btnDel-biru"><span class="glyphicon glyphicon-chevron-left"></span>Delete</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-warning" id="btn-1-biru"> -1</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-warning" id="btn-2-biru"> -2</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-warning" id="btn-5-biru"> -5</button>
+              </div>
+              <div class="col-lg-3 col-md-3 co-sm-3 col-xs-3">
+                <button class="btn btn-block btn-warning" id="btn-10-biru"> -10</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <div class="form-group">
+                  <label class="hidden-xs hidden-sm">Babak 1</label>
+                  <textarea class="form-control" disabled rows="1" name="biru-babak1"></textarea>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="form-group">
+                  <label class="hidden-xs hidden-sm">Total</label>
+                  <textarea class="form-control"disabled  rows="1" name="biru-babak1-total"></textarea>
+                </div>
+              </div>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <div class="form-group">
+                  <label class="hidden-xs hidden-sm">Babak 2</label>
+                  <textarea class="form-control" disabled rows="1" name="biru-babak2"></textarea>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="form-group">
+                  <label class="hidden-xs hidden-sm">Total</label>
+                  <textarea class="form-control"  disabled rows="1" name="biru-babak2-total"></textarea>
+                </div>
+              </div>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <div class="form-group">
+                  <label class="hidden-xs hidden-sm">Babak 3</label>
+                  <textarea class="form-control" disabled rows="1" name="biru-babak3"></textarea>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="form-group">
+                  <label class="hidden-xs hidden-sm">Total</label>
+                  <textarea class="form-control" disabled rows="1" name="biru-babak3-total"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer" style="text-align: center;">
+            &copy; 2018, Tapak Suci Indonesia
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="assets/penilaian/jquery/jquery.min.js"></script>
+  <script src="assets/penilaian/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+  <script>
+    var babak =1;
+    var nilai_merah_babak1 = new Array(); 
+    var nilai_merah_babak2 = new Array(); 
+    var nilai_merah_babak3 = new Array();
+
+
+    var nilai_biru_babak1 = new Array(); 
+    var nilai_biru_babak2 = new Array(); 
+    var nilai_biru_babak3 = new Array();
+
+ 
+
+    function tes(){
+      alert('asdas');
+    }
+
+    
+    function standardButton(){
+      $('.penilaian .btn').css({"padding" : "6px 12px", "margin-top" : "0px"});
+    } 
+
+    function bigButton(){
+      $('.penilaian .btn').css({"padding" : "8px 6px", "margin-top" : "8px"});
+    }
+
+    function hugeButton(){
+      $('.penilaian .btn').css({"padding" : "12px 6px", "margin-top" : "8px"});
+    }
+
+    function extrahugeButton(){
+      $('.penilaian .btn').css({"padding" : "18px 6px", "margin-top" : "6px"});
+    }
+
+    $(document).ready(function (){
+      // TOMBOL POINT UNTUK SUDUT MERAH
+      $('#btn1-merah').click(function(){
+        addPoint('merah', babak, 1)
+      })
+
+      $('#btn2-merah').click(function(){
+        addPoint('merah', babak, 2)
+      })
+
+      $('#btn3-merah').click(function(){
+        addPoint('merah', babak, 3)
+      })
+
+      $('#btn-1-merah').click(function(){
+        addPoint('merah', babak, -1)
+      })
+
+      $('#btn-2-merah').click(function(){
+        addPoint('merah', babak, -2)
+      })
+
+      $('#btn-5-merah').click(function(){
+        addPoint('merah', babak, -5)
+      })
+
+      $('#btn-10-merah').click(function(){
+        addPoint('merah', babak, -10)
+      })
+
+      $("#btn11-merah").click(function(){
+        addPoint('merah', babak, "1+1")
+      })
+
+      $("#btn12-merah").click(function(){
+        addPoint('merah', babak, "1+2")
+      })
+
+      $("#btn13-merah").click(function(){
+        addPoint('merah', babak, "1+3")
+      })
+
+      $('#btnDel-merah').click(function(){
+        deletePoint('merah', babak);
+      })
+
+
+
+      // TOMBOL POINT UNTUK SUDUT BIRU
+      $('#btn1-biru').click(function(){
+        addPoint('biru', babak, 1)
+      })
+
+      $('#btn2-biru').click(function(){
+        addPoint('biru', babak, 2)
+      })
+
+      $('#btn3-biru').click(function(){
+        addPoint('biru', babak, 3)
+      })
+
+      $('#btn-1-biru').click(function(){
+        addPoint('biru', babak, -1)
+      })
+
+      $('#btn-2-biru').click(function(){
+        addPoint('biru', babak, -2)
+      })
+
+      $('#btn-5-biru').click(function(){
+        addPoint('biru', babak, -5)
+      })
+
+      $('#btn-10-biru').click(function(){
+        addPoint('biru', babak, -10)
+      })
+
+      $("#btn11-biru").click(function(){
+        addPoint('biru', babak, "1+1")
+      })
+
+      $("#btn12-biru").click(function(){
+        addPoint('biru', babak, "1+2")
+      })
+
+      $("#btn13-biru").click(function(){
+        addPoint('biru', babak, "1+3")
+      })
+
+      $('#btnDel-biru').click(function(){
+        deletePoint('biru', babak);
+      })
+
+      function addPoint(sudut, babak, point){
+        if (sudut == 'merah') {
+          if (babak == 1) {
+            nilai_merah_babak1.push(point);
+          }else if (babak == 2) {
+            nilai_merah_babak2.push(point);
+          }else {
+            nilai_merah_babak3.push(point);
+          }
+        }else{
+          if (babak == 1) {
+            nilai_biru_babak1.push(point);
+          }else if (babak == 2) {
+            nilai_biru_babak2.push(point);
+          }else {
+            nilai_biru_babak3.push(point);
+          }
+        }
+        ubah_textArea(sudut, babak);
+      }
+
+      function ubah_textArea(sudut, babak){
+        if (sudut == 'merah') {
+          if (babak == 1) {
+            $("[name='"+sudut+'-babak'+babak+"']").val(nilai_merah_babak1);
+            total_point(sudut, babak , nilai_merah_babak1);
+          }else if (babak == 2) {
+            $("[name='"+sudut+'-babak'+babak+"']").val(nilai_merah_babak2);
+            total_point(sudut, babak , nilai_merah_babak2);
+          }else {
+            $("[name='"+sudut+'-babak'+babak+"']").val(nilai_merah_babak3);
+            total_point(sudut, babak , nilai_merah_babak3);
+          }
+        }else{
+          if (babak == 1) {
+            $("[name='"+sudut+'-babak'+babak+"']").val(nilai_biru_babak1);
+            total_point(sudut, babak , nilai_biru_babak1);
+          }else if (babak == 2) {
+            $("[name='"+sudut+'-babak'+babak+"']").val(nilai_biru_babak2);
+            total_point(sudut, babak , nilai_biru_babak2);
+          }else {
+            $("[name='"+sudut+'-babak'+babak+"']").val(nilai_biru_babak3);
+            total_point(sudut, babak , nilai_biru_babak3);
+          }
+        }
+      }
+
+
+      function total_point(sudut, babak , array){
+        var swap = array.slice(0);
+        for (var index = 0; index < swap.length; index++) {
+          switch(swap[index]) {
+              case "1+1":
+                  swap[index] = 2;
+                  break;
+              case "1+2":
+                  swap[index] = 3;
+                  break;
+              case "1+3":
+                  swap[index] = 4;
+                  break;
+          } 
+        }
+        $("[name='"+sudut+'-babak'+babak+'-total'+"']").val(swap.reduce(add, 0));
+       /* var tes = array.toString();
+        console.log(tes);
+        console.log(tes.split(',').map(String))*/
+        var total = Number($("[name='"+sudut+'-babak1-total'+"']").val()) + new Number($("[name='"+sudut+'-babak2-total'+"']").val())  + Number($("[name='"+sudut+'-babak3-total'+"']").val()); 
+        $('#point-'+sudut).html(total);
+      }
+
+      function add(a , b){
+        return a + b;
+      }
+
+      function deletePoint(sudut, babak){
+        if (sudut == 'merah') {
+          if (babak == 1) {
+            nilai_merah_babak1.pop();
+            $("[name='"+sudut+'-babak'+babak+"']").val(nilai_merah_babak1);
+            total_point(sudut, babak , nilai_merah_babak1);
+          }else if (babak == 2) {
+            nilai_merah_babak2.pop();
+            $("[name='"+sudut+'-babak'+babak+"']").val(nilai_merah_babak2);
+            total_point(sudut, babak , nilai_merah_babak2);
+          }else {
+            nilai_merah_babak3.pop();
+            $("[name='"+sudut+'-babak'+babak+"']").val(nilai_merah_babak3);
+            total_point(sudut, babak , nilai_merah_babak3);
+          }
+        }else{
+          if (babak == 1) {
+            nilai_biru_babak1.pop();
+            $("[name='"+sudut+'-babak'+babak+"']").val(nilai_biru_babak1);
+            total_point(sudut, babak , nilai_biru_babak1);
+          }else if (babak == 2) {
+            nilai_biru_babak2.pop();
+            $("[name='"+sudut+'-babak'+babak+"']").val(nilai_biru_babak2);
+            total_point(sudut, babak , nilai_biru_babak2);
+          }else {
+            nilai_biru_babak3.pop();
+            $("[name='"+sudut+'-babak'+babak+"']").val(nilai_biru_babak3);
+            total_point(sudut, babak , nilai_biru_babak3);
+          }
+        }
+      }
+
+      $('#pindah_babak').click(function(){
+        babak += 1;
+        if (babak > 3) {
+          babak = 3;
+        }
+      })
+
+     if ($(window).width() <= 768) {
+      $('.penilaian .btn-danger').html('<span class="glyphicon glyphicon-chevron-left"></span>');    
+    }
+  });
+
+
+</script>
+</body>
+
+</html>

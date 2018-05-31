@@ -1,0 +1,503 @@
+
+body {
+	background-image: url('../../background.jpg');
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.navbar form{
+	margin:8px;
+	color: #A7A7A7;
+}
+
+.custom-container{
+	padding: 20px 30px 20px 30px;
+}
+
+.container-setting{
+	width: 100%;
+	padding: 10px 15px 10px 15px;
+	background-color: #ddd;
+	overflow: auto;
+}
+.container-timer{
+	margin-top: 100px;
+}
+
+.penilaian{
+	margin-top: 20px;
+}
+
+.penilaian .panel-body .row > div{
+	padding: 5px;
+}
+.penilaian .panel-body{
+	padding-top: 5px;
+}
+.penilaian .panel-body .row {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.header-partai{
+	width: 16.666%;
+	margin: 20px 41.7% 20px 41.7%;
+	color: #DDDDDD;
+	border-radius: 20px;
+	text-align: center;
+	padding: 3px 10px;
+	box-shadow: 0px 6px 5px #222222;
+	background: #222222; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#444444, #222222, #444444); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#444444, #222222, #444444); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#444444, #222222, #444444); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#444444, #222222, #444444); /* Standard syntax */
+
+}
+.header-partai h1{
+	font-weight: 700;
+	font-size: 2em;
+}
+
+
+
+
+.container-setting div:first-child{
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
+.btn-info-custom{
+	color: #fff;
+	background-color: #337AB7;
+	border-color: #2E70A9;
+}
+.btn-info-custom:hover{
+	color: #fff;
+	background-color: #2E70A9;
+	border-color: #2B6597;
+}
+.btn-info-custom:focus, .btn-info-custom:active{
+	color: #fff;
+	background-color: #255B8A;
+	border-color: #215079;
+}
+
+
+.btn-success-custom{
+	color: #fff;
+	background-color: #4FA34F;
+	border-color: #458B45;
+}
+.btn-success-custom:hover{
+	color: #fff;
+	background-color: #458B45;
+	border-color: #387B38;
+}
+.btn-success-custom:focus, .btn-success-custom:active{
+	color: #fff;
+	background-color: #387B38;
+	border-color: #306C30;
+}
+
+.img-pesilat{
+	padding: 10px;
+	border-radius: 20px;
+	box-shadow: 0px 6px 5px #222222;
+	background: #222222; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#444444, #222222, #444444); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#444444, #222222, #444444); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#444444, #222222, #444444); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#444444, #222222, #444444); /* Standard syntax */
+}
+
+.foto-pesilat-merah{
+	width: 30%;
+	z-index: 100;
+	float: left;
+}
+
+.foto-pesilat-biru{
+	width: 30%;
+	z-index: 100;
+	float: right;
+}
+
+
+#header > .nama-pesilat{
+	transform: skew(20deg);
+}
+.nama-pesilat{
+	position: absolute;
+	z-index: -110;
+	top: 0;
+	text-align: left;
+	width: 55%;
+	color: #DDDDDD;
+	margin: 30px 0px 30px 0px;
+	box-shadow: 0px 6px 5px #222222;
+	background: #222222; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#444444, #222222, #444444); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#444444, #222222, #444444); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#444444, #222222, #444444); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#444444, #222222, #444444); /* Standard syntax */
+}
+
+.pesilat-merah{
+	padding: 15px 15px 15px 8%;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	left: 25%;
+}
+
+.pesilat-merah hr{
+	background-color: #AA0000;
+}
+.pesilat-biru{
+	padding: 15px 8% 15px 15px;
+	right: 25%;
+	text-align: right;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+.pesilat-biru hr{
+	background-color: #0400AA;
+}
+
+.score{
+	position: absolute;
+	top: 0;
+	text-align: center;
+	width: 16%;
+	height: 80px;
+	border-radius: 20px;
+	color: #DDDDDD;
+	margin: 30px 2% 30px 2%;
+	box-shadow: 0px 6px 5px #222222;
+	background: #222222; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#444444, #222222, #444444); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#444444, #222222, #444444); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#444444, #222222, #444444); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#444444, #222222, #444444); /* Standard syntax */
+}
+.score h2{
+	font-weight: 700;
+	margin-top: 23.5px;
+	margin-bottom: 23.5px;
+}
+.score-merah{
+	left: 80%;
+}
+.score-biru{
+	right: 80%;
+}
+
+.timer{
+	color: #DDDDDD;
+	position: relative;
+	margin: 30px 0px 30px 0px;
+	height: 81px;
+	border-radius: 20px;
+	text-align: center;
+	padding: 13px 0px 13px 0px;
+	box-shadow: 0px 6px 5px #222222;
+	background: #222222; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#444444, #222222, #444444); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#444444, #222222, #444444); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#444444, #222222, #444444); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#444444, #222222, #444444); /* Standard syntax */
+}
+.timer h1{
+	font-size: 2em;
+	top: 0;
+	font-weight: 700;
+	margin:0px;
+}
+
+.timer hr{
+	margin: 0px 25% 3px 25%;
+	height: 3px;
+	width: 50%;
+	background-color: #dddddd;
+	border:none;
+}
+
+.timer h2{
+	text-shadow: 2px 2px 2px black;
+	font-size: 1.1em;
+	font-weight: 700;
+	margin:0px;
+}	
+
+.nama-pesilat h1{
+	font-size: 1.3em;
+	margin:0px;
+}
+
+.nama-pesilat hr{
+	margin: 5px 0px 5px 0px;
+	height: 4px;
+	border:none;
+}
+.nama-pesilat h2{
+	font-size: 1em;
+	margin:0px;
+}
+
+
+
+
+.panel-red {
+  border-color: #AA0000;
+  margin-top: 0px;
+  box-shadow: 0px 6px 5px #222222;
+}
+.panel-red > .panel-heading {
+  color: #FFFFFF;
+  background-color: #AA0000;
+  border-color: #DDDDDD;
+}
+.panel-red > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #DDDDDD;
+}
+.panel-red > .panel-heading .badge {
+  color: #FFFFFF;
+  background-color: #FFFFFF;
+}
+.panel-red > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #AA0000;
+}
+
+.panel-red .panel-heading {
+	overflow: auto;
+}
+.panel-red .panel-heading p{
+	margin: 0px;
+	font-weight: 700;
+	font-size: 1.1em;
+	float: left
+	color:#ddd;
+}
+
+.panel-red .panel-heading p > span{
+	margin-left: 15px;
+	font-weight: 700;
+	font-size: 1.1em;
+	background-color: #337AB7;
+	color: white;
+	padding: 10px;
+}
+
+
+
+
+
+.panel-blue {
+  border-color: #0400AA;
+  margin-top: 0px;
+  box-shadow: 0px 6px 5px #222222;
+}
+.panel-blue > .panel-heading {
+  color: #FFFFFF;
+  background-color: #0400AA;
+  border-color: #DDDDDD;
+}
+.panel-blue > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #DDDDDD;
+}
+.panel-blue > .panel-heading .badge {
+  color: #FFFFFF;
+  background-color: #FFFFFF;
+}
+.panel-blue > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #0400AA;
+}
+
+.panel-blue .panel-heading {
+	overflow: auto;
+}
+.panel-blue .panel-heading p{
+	margin: 0px;
+	font-weight: 700;
+	font-size: 1.1em;
+	float: left
+	color:#ddd;
+}
+
+.panel-blue .panel-heading p > span{
+	margin-left: 15px;
+	font-weight: 700;
+	font-size: 1.1em;
+	background-color: #337AB7;
+	color: white;
+	padding: 10px;
+}
+
+
+.panel-green {
+  border-color: #027207;
+  margin-top: 0px;
+  box-shadow: 0px 6px 5px #222222;
+}
+.panel-green > .panel-heading {
+  color: #FFFFFF;
+  background-color: #027207;
+  border-color: #DDDDDD;
+}
+.panel-green > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #DDDDDD;
+}
+.panel-green > .panel-heading .badge {
+  color: #FFFFFF;
+  background-color: #FFFFFF;
+}
+.panel-green > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #027207;
+}
+
+.panel-green .panel-heading {
+	overflow: auto;
+}
+.panel-green .panel-heading p{
+	margin: 0px;
+	font-weight: 700;
+	font-size: 1.1em;
+	float: left
+	color:#ddd;
+}
+
+.panel-green .panel-heading p > span{
+	margin-left: 15px;
+	font-weight: 700;
+	font-size: 1.1em;
+	background-color: #027207;
+	color: white;
+	padding: 10px;
+}
+
+.mini-timer{
+	text-align: center;
+}
+.mini-timer h1{
+	margin-top: 5px;
+	margin-bottom: 	5px;
+	font-weight: 700;
+}
+.mini-timer h3{
+	margin-top: 5px;
+	margin-bottom: 	5px;
+	font-size: 	1.2em;
+	font-weight: 700;
+}
+.button-next-round{
+	height: 194px;
+	border-radius: 20px;
+	text-align: center;
+	padding: 13px 0px 13px 0px;
+	cursor: pointer;
+	box-shadow: 0px 6px 5px #222222;
+	background: #222222; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#444444, #222222, #444444); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#444444, #222222, #444444); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#444444, #222222, #444444); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#444444, #222222, #444444); /* Standard syntax */
+}
+.button-next-round h1, .button-undo-timer h1{
+	color: #D3D3D3;
+	margin:64.2px 0px 64.2px 0px;
+}
+.button-timer, .button-undo-timer{
+	height: 194px;
+	border-radius: 20px;
+	cursor: pointer;
+	text-align: center;
+	padding: 13px 0px 13px 0px;
+	box-shadow: 0px 6px 5px #222222;
+	background: #222222; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#444444, #222222, #444444); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#444444, #222222, #444444); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#444444, #222222, #444444); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#444444, #222222, #444444); /* Standard syntax */
+}
+.button-timer span{
+	color: #D3D3D3;
+	font-size: 	7em;
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+
+.button-timer:hover, .button-undo-timer:hover, .button-next-round:hover{
+	background: #222222; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#222222, #444444, #222222); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#222222, #444444, #222222); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#222222, #444444, #222222); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#222222, #444444, #222222); /* Standard syntax */
+}
+
+
+
+
+@media  screen and (max-device-width: 768px){
+	.cari-pertandingan input{
+		width: 65%;
+		display: inline-block;
+		float: left;
+	}
+	.cari-pertandingan button{
+		width: 29%;
+		margin: 2px 3% 2px 3%;
+		display: inline-block;
+		float: left;
+	}
+	.cari-pertandingan label{
+		display: block;
+	}
+	.penilaian{
+		margin-top: 0px;
+	}
+	.penilaian > div:nth-child(1){
+		padding: 0px 10px 10px 10px;
+	}
+	.penilaian > div:nth-child(3){
+		padding: 0px 10px 10px 0px;
+	}
+	.penilaian .btn{
+		font-size: 12px;
+		padding: 3px 6px;
+	}
+	.penilaian .panel-body .row > div{
+		padding: 2px;
+	}
+	.form-group{
+		margin-bottom: 5px;
+	}
+	.penilaian label{
+		display: none;
+	}
+	.container-timer{
+		margin-top: 0px;
+	}
+	.button-next-round, .button-timer, .button-undo-timer{
+		height: 50px;
+		padding: 13px 0px 13px 0px;
+	}
+	.button-next-round h1, .button-undo-timer h1{
+		margin:2px 0px 2px 0px;
+		font-size: 1.3em;
+	}
+	.button-timer span{
+		margin: 0px;
+		font-size: 	2em;
+	}
+
+}
+
+@media (min-device-width: 1024px){
+	.form-group{
+		margin-bottom: 5px;
+	}
+	.penilaian label{
+		display: none;
+	}
+}
